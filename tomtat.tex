@@ -133,7 +133,7 @@
 % Abstract Vietnamese
 \input{chapters/abtract_vi}\newpage\cleardoublepage
 % Abstract English
-\input{chapters/abtract_en}\newpage\cleardoublepage
+% \input{chapters/abtract_en}\newpage\cleardoublepage
 \addcontentsline{toc}{chapter}{Mục lục}
 \tableofcontents\newpage\cleardoublepage
 %
@@ -144,16 +144,15 @@
 
 \newpage
 \addcontentsline{toc}{chapter}{\listtablename}
-\listoftables
+\listoftables\cleardoublepage
 
-\newpage
-\input{chapters/glossary}\newpage\cleardoublepage
+% \newpage
+% \input{chapters/glossary}\newpage\cleardoublepage
 % \listoftables
+% \input{chapters/introduction}\newpage\cleardoublepage
 
 \setcounter{page}{1}
 \pagenumbering{arabic}
-
-% \input{chapters/introduction}\newpage\cleardoublepage
 \input{chapters/c1/c1_chaper}\newpage\cleardoublepage
 \input{chapters/c2/c2_chapter}\newpage\cleardoublepage
 \input{chapters/c3/c3_chapter}\newpage\cleardoublepage

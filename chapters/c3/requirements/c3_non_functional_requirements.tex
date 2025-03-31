@@ -1,0 +1,24 @@
+\subsection{Yêu cầu phi chức năng}
+
+Ứng dụng Smart Gallery cần đáp ứng một số yêu cầu phi chức năng quan trọng để đảm bảo hiệu quả hoạt động và trải nghiệm người dùng tốt nhất:
+
+\begin{itemize}
+    \item[-] \textbf{Hiệu năng xử lý:} Hệ thống cần đảm bảo tốc độ phản hồi nhanh dù xử lý bộ sưu tập ảnh lớn. Thời gian tải và hiển thị ảnh cần được tối ưu, đặc biệt khi xem ảnh ở chế độ lưới hoặc album. Thời gian phân loại ảnh tự động không nên vượt quá 5 giây/ảnh trên thiết bị cấu hình trung bình.
+    
+    \item[-] \textbf{Bảo mật và bảo vệ dữ liệu:} Hệ thống cần đảm bảo an toàn và bảo mật thông tin cá nhân, đặc biệt là dữ liệu hình ảnh của người dùng. Việc mã hóa dữ liệu và xác thực người dùng phải được thực hiện nghiêm ngặt để ngăn chặn truy cập trái phép.
+    
+    \item[-] \textbf{Độ chính xác của AI:} Các thuật toán AI để phân loại ảnh và nhận diện khuôn mặt cần đạt độ chính xác cao. Tỷ lệ gắn nhãn chính xác cho ảnh cần đạt tối thiểu 85\%, và nhận diện khuôn mặt cần đạt độ chính xác tối thiểu 90\% để đảm bảo trải nghiệm người dùng.
+    
+    \item[-] \textbf{Khả năng mở rộng:} Hệ thống cần có khả năng mở rộng để đáp ứng số lượng người dùng và dữ liệu ảnh tăng trưởng theo thời gian mà không làm giảm hiệu suất tổng thể.
+    
+    \item[-] \textbf{Thân thiện với người dùng:} Giao diện của ứng dụng cần được thiết kế trực quan, dễ sử dụng và thẩm mỹ. Người dùng mới có thể dễ dàng tiếp cận và sử dụng đầy đủ tính năng mà không cần hướng dẫn phức tạp.
+    
+    \item[-] \textbf{Sử dụng tài nguyên tối ưu:} Ứng dụng cần tối ưu hóa việc sử dụng tài nguyên thiết bị, bao gồm CPU, bộ nhớ và thời lượng pin, đặc biệt khi thực hiện các tác vụ xử lý ảnh và AI.
+    
+    \item[-] \textbf{Tính khả dụng:} Hệ thống cần duy trì khả năng hoạt động cao và hỗ trợ đồng bộ hóa dữ liệu khi người dùng có kết nối internet không ổn định hoặc bị ngắt kết nối tạm thời.
+    
+    \item[-] \textbf{Khả năng tương thích:} Ứng dụng cần tương thích với nhiều phiên bản Android khác nhau (tối thiểu từ Android 8.0 trở lên) và các kích thước màn hình khác nhau để đảm bảo trải nghiệm nhất quán trên nhiều thiết bị.
+    
+    \item[-] \textbf{Cập nhật thời gian thực:} Hệ thống cần cung cấp khả năng cập nhật thời gian thực cho các quy trình xử lý dài, đặc biệt là trạng thái render video. Người dùng cần được thông báo về tiến độ xử lý video với độ trễ không quá 2 giây, bao gồm các trạng thái "đang xử lý", "đang render", "hoàn thành" hoặc "lỗi". Điều này giúp người dùng theo dõi được quá trình xử lý và đưa ra quyết định phù hợp mà không cần liên tục kiểm tra thủ công.
+    
+\end{itemize}

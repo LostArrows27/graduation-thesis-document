@@ -1,0 +1,43 @@
+\subsection{Ca sử dụng đăng nhập}
+\vspace{0.5cm}
+
+\noindent 
+\begin{tabularx}{\linewidth}{| l | X |} 
+\hline 
+\textbf{Mô tả} & Khi người dùng muốn sử dụng các chức năng yêu cầu quyền đăng nhập. \\ 
+\hline 
+\textbf{Luồng cơ bản} & 1. Truy cập trang đăng nhập \\ 
+                      & 2. Nhập thông tin tài khoản (email / mật khẩu) \\ 
+                      & 3. Điều hướng đến trang home - danh sách ảnh. \\ 
+\hline 
+\textbf{Luồng thay thế} & Người dùng nhập sai thông tin tài khoản: \\ 
+                       & 1. Hiển thị thông báo lỗi trên form đăng nhập \\ 
+\hline 
+\textbf{Tiền điều kiện} & Người dùng đã đăng xuất. \\ 
+\hline 
+\textbf{Hậu điều kiện} & Hệ thống lưu token đăng nhập vào local storage. \\ 
+\hline 
+\textbf{Yêu cầu phi chức năng} & Hệ thống xử lý đăng nhập không quá 2s. \\ 
+\hline 
+\end{tabularx}
+
+\vspace{0.8cm}
+
+\noindent 
+\begin{tabular}{| c | c |}
+    \hline
+    \textbf{Biểu đồ hoạt động} & \textbf{Quan hệ} \\ 
+    \hline
+    \includegraphics[width=0.45\linewidth]{figures/c3/3-3-1-activity-diagram.png} 
+    & 
+    \includegraphics[width=0.45\linewidth]{figures/c3/3-3-1-relationship.png} \\ 
+    \hline
+\end{tabular}
+
+\begin{figure}[H]
+    \centering  
+    \includegraphics[width=1.1\textwidth]{figures/c3/3-3-1-sequence-diagram.png}
+    \caption{Biểu đồ tuần tự ca sử dụng đăng nhập.}
+    \label{fig:3-3-1-sequence-diagram}
+\end{figure}
+

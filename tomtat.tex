@@ -32,6 +32,8 @@
 \usepackage[flushleft]{threeparttable}
 % \usepackage{subcaption}
 \usepackage{perpage} %the perpage package
+\usepackage{tabularx}
+\usepackage{ragged2e}
 \MakePerPage{footnote} %the perpage package command
 % \usepackage[ruled,vlined]{algorithm2e}
 \PassOptionsToPackage{table}{xcolor}
@@ -81,6 +83,8 @@
 
 \renewcommand{\lstlistingname}{Hình}
 \newcommand{\cev}[1]{\reflectbox{\ensuremath{\vec{\reflectbox{\ensuremath{#1}}}}}}
+
+\setlength{\cftsubsecnumwidth}{3.2em}
 
 \lstset{
   basicstyle=\ttfamily\footnotesize,

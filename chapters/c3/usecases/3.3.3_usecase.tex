@@ -1,1 +1,49 @@
 \subsection{Ca sử dụng điền thông tin cơ bản}
+
+\vspace{0.5cm}
+
+
+\noindent 
+\begin{tabularx}{\linewidth}{| l | X |} 
+\hline 
+\textbf{Mô tả} & Người dùng cập nhật thông tin cá nhân như ngày sinh, tên, khảo sát, ảnh đại diện và thực hiện 1 số thao tác làm quen với tính năng hệ thống. \\ 
+\hline 
+\textbf{Luồng cơ bản} & 1. Người dùng đăng ký tài khoản mới. \newline
+                       2. Người dùng tải ảnh đại diện lên. \newline
+                       3. Người dùng điền tên và ngày sinh. \newline
+                       4. Người dùng upload 3 ảnh lên để hệ thống hiển thị và giới thiệu tính năng gán nhãn ảnh. \newline
+                       5. Người dùng điền form khảo sát. \newline
+                       6. Người dùng bấm nút hoàn thành. \newline
+                       7. Hệ thống điều hướng người dùng đến trang chủ của ứng dụng. \\
+\hline 
+\textbf{Luồng thay thế} &
+                       - Nếu thông tin nhập vào không hợp lệ sẽ thông báo lỗi để người dùng nhập lại. \\ 
+\hline 
+\textbf{Tiền điều kiện} & Người dùng đăng ký tài khoản thành công và chưa hoàn thành điền hết 4 form thông tin cá nhân. \\
+\hline 
+\textbf{Hậu điều kiện} & - Thông tin cá nhân của người dùng được cập nhật. \newline
+                       - Ảnh đại diện và 3 ảnh được upload lên sẽ được hệ thống đưa vào thư viện người dùng. \\ 
+\hline 
+\textbf{Yêu cầu phi chức năng} & Hệ thống xử lý gán nhãn ảnh không quá 5s \\
+\hline 
+\end{tabularx}
+
+\vspace{0.8cm}
+
+\noindent 
+\begin{tabular}{| c | c |}
+    \hline
+    \textbf{Biểu đồ hoạt động} & \textbf{Quan hệ} \\ 
+    \hline
+    \includegraphics[width=0.45\linewidth]{figures/c3/3-3-3-activity-diagram.png} 
+    & 
+    \includegraphics[width=0.4\linewidth]{figures/c3/3-3-3-relationship.png} \\ 
+    \hline
+\end{tabular}
+
+\begin{figure}[H]
+    \centering  
+    \includegraphics[width=1\textwidth]{figures/c3/3-3-3-sequence-diagram.png}
+    \caption{Biểu đồ tuần tự ca sử dụng điền thông tin cơ bản.}
+    \label{fig:3-3-3-sequence-diagram}
+\end{figure}

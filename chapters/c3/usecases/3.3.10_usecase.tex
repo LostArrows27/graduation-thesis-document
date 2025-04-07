@@ -1,1 +1,43 @@
 \subsection{Ca sử dụng xem danh sách khuôn mặt}
+
+\vspace{0.5cm}
+
+\noindent 
+\begin{tabularx}{\linewidth}{| l | X |} 
+\hline 
+\textbf{Mô tả} & Người dùng muốn xem các danh sách khuôn mặt xuất hiện trong các bức ảnh tải lên. \\
+\hline 
+\textbf{Luồng cơ bản} & 1. Người dùng bấm vào ô khám phá khuôn mặt. \newline
+                       2. Hệ thống lấy dữ liệu những khuôn mặt trong ảnh người dùng. \newline
+                       3. Hệ thống lấy dữ liệu nhóm khuôn mặt đã được tạo trước đó. \newline
+                       4. Hệ thống thực hiện phân loại và so sánh nhóm khuôn mặt mới với nhóm khuôn mặt cũ. \newline
+                       5. Hệ thống hiển thị danh sách các khuôn mặt và tên gọi (nếu có). \\
+\hline
+\textbf{Luồng thay thế} & 2a. Nếu có những nhóm khuôn mặt có sẵn thì hệ thống so sánh nhóm mới với nhóm cũ. Và sau đó nhóm mới sẽ thay thế nhóm cũ nếu phù hợp. \\
+\hline 
+\textbf{Hậu điều kiện} & - Hệ thống hiển thị trạng thái và tiến độ tạo video theo thời gian thực. \newline
+                         - Người dùng quay về màn hình danh sách video để theo dõi trạng thái video đã tạo. \\
+\hline 
+\textbf{Yêu cầu phi chức năng} & -Hệ thống xử lý nhóm khuôn mặt không quá 20s. \\
+\hline 
+\end{tabularx}
+
+\vspace{0.8cm}
+
+\noindent 
+\begin{tabular}{| c | c |}
+    \hline
+    \textbf{Biểu đồ hoạt động} & \textbf{Quan hệ} \\ 
+    \hline
+    \includegraphics[width=0.6\linewidth]{figures/c3/3-3-10-activity-diagram.png} 
+    &  
+    \includegraphics[width=0.35\linewidth]{figures/c3/3-3-10-relationship.png} \\ 
+    \hline
+\end{tabular}
+
+\begin{figure}[H]
+    \centering  
+    \includegraphics[width=1\textwidth]{figures/c3/3-3-10-sequence-diagram.png}
+    \caption{Biểu đồ tuần tự ca sử dụng xem danh sách khuôn mặt.}
+    \label{fig:3-3-10-sequence-diagram}
+\end{figure}

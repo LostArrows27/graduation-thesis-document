@@ -1,0 +1,170 @@
+\subsubsection{Xây dựng kịch bản video}
+
+Một trong những tính năng nổi bật của hệ thống Smart Gallery là khả năng tạo video slideshow tự động từ bộ sưu tập ảnh. Để thực hiện điều này, hệ thống cần xây dựng một kịch bản video có cấu trúc hợp lý, đảm bảo nội dung mạch lạc và hấp dẫn. Kịch bản video được chia thành bốn phần chính:
+
+\begin{enumerate}
+    \item \textbf{Intro:} Phần mở đầu của video bao gồm:
+    \begin{itemize}
+        \item[-] Slide tiêu đề: Hiển thị tiêu đề của video do người dùng đặt, thường được trình bày với hiệu ứng chuyển động và phông chữ đặc biệt.
+        \item[-] Slide tổng quát: Giới thiệu tổng quan về nội dung video, sử dụng các hình ảnh đại diện được chọn lọc từ tập ảnh input của người dùng.
+    \end{itemize}
+    
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}{0.48\textwidth}
+            \includegraphics[width=1\linewidth]{figures/c4/4_1/intro_1.png} 
+            \caption{Slide tiêu đề video}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.48\textwidth}
+            \includegraphics[width=1\linewidth]{figures/c4/4_1/intro_2.jpg} 
+            \caption{Slide tổng quát video}
+        \end{subfigure}
+        \caption{Các thiết kế cho phần Intro của video slideshow}
+        \label{fig:video-intro-design}
+    \end{figure}
+    
+    \item \textbf{Content:} Phần nội dung chính của video:
+    Phần nội dung chính của video được tổ chức thành các chương (chapters), được phân chia dựa trên nhãn location và event của ảnh. Mỗi chương được cấu trúc như sau:
+    \begin{itemize}
+        \item[-] Slide tiêu đề chương: Hiển thị tên của chương tương ứng với nhãn location hoặc event. 
+        \item[-] Slide trình chiếu ảnh: Hiển thị các ảnh thuộc cùng một nhóm nhãn, kèm theo hiệu ứng chuyển cảnh.
+    \end{itemize}
+    
+    Tiêu đề và caption của các khung hình được tạo tự động bằng mô hình Gemini thông qua prompt sau:
+    
+    \begin{figure}[H]
+        \centering  
+        \includegraphics[width=1\textwidth]{figures/c4/4_1/prompt.png}
+        \caption{Prompt Gemini để tạo caption cho video slideshow}
+        \label{fig:gemini-prompt}
+    \end{figure}
+    
+    Ngoài ra, với mỗi chương, hệ thống đã chuẩn bị sẵn các phong cách trình bày sau cho slide ảnh:
+    
+    \begin{itemize}
+        \item[-] Style tiêu đề chương:
+        \begin{figure}[H]
+            \centering
+            \begin{subfigure}{0.48\textwidth}
+                \includegraphics[width=1\linewidth]{figures/c4/4_1/title_1.jpg} 
+                \caption{Style tiêu đề 1}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}{0.48\textwidth}
+                \includegraphics[width=1\linewidth]{figures/c4/4_1/title_2.jpg} 
+                \caption{Style tiêu đề 2}
+            \end{subfigure}
+            \caption{Các style tiêu đề chương.}
+            \label{fig:chapter-title-styles}
+        \end{figure}
+        
+        \item[-] Style trình chiếu ảnh:
+        \begin{figure}[H]
+            \centering
+            \begin{subfigure}{0.48\textwidth}
+                \includegraphics[width=1\linewidth]{figures/c4/4_1/slide_1.jpg} 
+                \caption{Style slide ảnh 1}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}{0.48\textwidth}
+                \includegraphics[width=1\linewidth]{figures/c4/4_1/slide_2.jpg} 
+                \caption{Style slide ảnh 2}
+            \end{subfigure}
+            \caption{Thiết kế các style slide ảnh.}
+            \label{fig:slider-styles}
+        \end{figure}
+    \end{itemize}
+    
+    \item \textbf{Special Part:} Phần đặc biệt của video tập trung vào việc điểm lại các thành viên tham gia chuyến đi:
+    \begin{itemize}
+        \item[-] Chỉ xuất hiện khi bộ sưu tập có ít nhất một khuôn mặt được nhận diện.
+        \item[-] Hiển thị tổng số người đã tham gia trong chuyến đi.
+        \item[-] Trình bày top 4 khuôn mặt xuất hiện nhiều nhất cùng với tên của họ.
+    \end{itemize}
+    
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}{0.48\textwidth}
+            \includegraphics[width=1\linewidth]{figures/c4/4_1/special_1.jpg} 
+            \caption{Slide giới thiệu phần Special}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.48\textwidth}
+            \includegraphics[width=1\linewidth]{figures/c4/4_1/special_2.jpg} 
+            \caption{Slide hiển thị top khuôn mặt}
+        \end{subfigure}
+        \caption{Thiết kế phần Special Part của video slideshow.}
+        \label{fig:video-special-design}
+    \end{figure}
+    
+    \item \textbf{Outro:} Phần kết thúc của video: Phần này sẽ tóm tắt lại chuyến đi bằng các ảnh tiêu biểu được chọn lọc và các caption được chọn tự động bởi hệ thống.
+    
+    \begin{figure}[H]
+        \centering  
+        \includegraphics[width=1\textwidth]{figures/c4/4_1/outro.jpg}
+        \caption{Thiết kế phần Outro của video slideshow.}
+        \label{fig:video-outro-design}
+    \end{figure}
+\end{enumerate}
+
+\paragraph{Thuật toán xây dựng kịch bản Content}
+Phần nội dung chính của video được xây dựng dựa trên một thuật toán phân nhóm và tổ chức ảnh thành các chương logic. Thuật toán này chia tập ảnh input của người dùng thành các nhóm dựa trên nhãn location và event của ảnh. Mỗi nhóm sẽ được tổ chức thành một chương riêng biệt trong video. Sau đây là cấu trúc JSON của label 1 ảnh:
+
+\newpage
+\lstset{language=json}
+\begin{lstlisting}
+{
+  "location_labels": [
+    {"temple": 0.9948057532310486},
+    {"palace": 0.0011160931317135692}
+  ],
+  "action_labels": [
+    {"visiting historical sites": 0.8663983941078186},
+    {"visiting museum": 0.039322637021541595}
+  ],
+  "event_labels": [
+    {"Spring": 0.3410003185272217},
+    {"Conference": 0.1293141394853592}
+  ]
+}
+\end{lstlisting}
+
+Quy trình tạo kịch bản phần Content (nội dung chính) của video bao gồm năm bước chính:
+
+\begin{itemize}
+    \item \textbf{Bước 1: Labeling}: Phát hiện và gán nhãn cho những ảnh chưa có label.
+    
+    \item \textbf{Bước 2: Nhóm ảnh theo nhãn}: Nhóm các ảnh theo nhãn label có độ tin cậy cao nhất của từng ảnh. Ví dụ: \{mountain: 2 ảnh\}, \{park: 3 ảnh\}.
+    
+    \item \textbf{Bước 3: Nhóm theo tập nhãn "broader group"}: Các nhóm có số lượng ảnh < 3 sẽ được nhóm chung dựa theo tập nhãn rộng hơn. Tập nhãn "broader group" là tập hợp các nhãn location được phân loại vào các nhóm lớn hơn (như "nature" bao gồm "sea", "mountain", "forest", v.v.). Ví dụ: nếu nhóm "sea" có 2 ảnh và nhóm "mountain" có 2 ảnh, cả hai sẽ được gộp thành nhóm "nature" với 4 ảnh.
+    
+    \item \textbf{Bước 4: Tối ưu hóa nhóm}: Kiểm tra lại các nhóm broader location có số lượng < 3 ảnh. Nếu phát hiện, hệ thống sẽ đưa nhóm này vào nhóm location thuộc broader location đó và có số lượng ảnh nhiều nhất. Ví dụ: nhóm "workspace" (gồm 2 ảnh) sẽ được gộp vào nhóm "classroom" (có 4 ảnh) nếu "classroom" thuộc nhóm broader "workspace" và có số lượng ảnh nhiều nhất trong các nhóm thuộc "workspace".
+    
+    \item \textbf{Bước 5: Xử lý ngoại lệ}: Duyệt lại lần cuối, những nhóm chỉ có 1 ảnh sẽ được gộp vào một chương chung có tên "Small Part" hoặc "Khoảnh khắc khác".
+    \item \textbf{Bước 6: Tạo nội dung từng chương}: Trong các chương, với tập ảnh đã được nhóm và phân chia từ các bước trước, hệ thống sẽ tạo tiêu đề chương và chia các ảnh trong chương đó thành các slide ảnh. Mỗi slide ảnh được nhóm theo nhãn activity. 
+    \item \textbf{Bước 7: Tạo tiêu đề và caption}: Tiêu đề chương và caption được tạo tự động bằng mô hình Gemini thông qua prompt đã nêu ở trên. 
+    \item \textbf{Bước 8: Chọn phong cách trình bày}: Hệ thống sẽ chọn ngẫu nhiên một trong các phong cách trình bày đã được chuẩn bị sẵn cho tiêu đề chương và slide ảnh (nếu người dùng không chọn phong cách cụ thể nào).
+\end{itemize}
+
+\paragraph{Lưu trữ kịch bản video}
+Sau khi được xây dựng hoàn chỉnh, kịch bản video được lưu trữ vào cơ sở dữ liệu trong bảng \texttt{video\_render}, cụ thể là trong trường \texttt{schema}. Thông tin này sau đó được sử dụng bởi các module render video để tạo ra video slideshow hoàn chỉnh theo kịch bản đã định.
+
+Ngoài ra, việc lưu trữ kịch bản cho phép hệ thống:
+\begin{itemize}
+    \item[-] Xem lại và chỉnh sửa kịch bản trước khi render nếu cần
+    \item[-] Tái sử dụng kịch bản cho các video khác với cùng bộ ảnh
+    \item[-] Theo dõi và phân tích các mẫu kịch bản phổ biến để cải thiện thuật toán
+\end{itemize}
+
+\subsubsection{Tạo video slideshow}
+Video sẽ được hệ thống render dựa trên kịch bản đã lưu trong CSDL thông qua những bước sau:
+
+\begin{enumerate}
+    \item \textbf{Lấy kịch bản video}: Hệ thống sẽ truy vấn kịch bản video từ bảng \texttt{video\_render} trong cơ sở dữ liệu.
+    \item \textbf{Tối ưu hóa render}: Trong quá trình thử nghiệm và đo đạc thời gian tạo video, em đã phát hiện ra rằng thời gian render video bị khá lâu ở phần Intro, nên em đã tối ưu bằng cách upload và resize ảnh của video bằng server của Cloudinary. Do hạn chế về dung lượng upload của Cloudinary, hiện tại phần tối ưu hóa render sẽ chỉ được hệ thống áp dụng cho phần Intro của video.
+    \item \textbf{Render video}: Hệ thống sẽ sử dụng thư viện Remotion để tạo video định dạng mp4 với kịch bản đã lưu. Sau đó lưu video vào 1 thư mục tạm thời trên server. Trong quá trình render, hệ thống sẽ lưu trạng thái render của người dùng vào trong CSDL Redis để tránh tình trạng người dùng tạo nhiều video 1 lúc, qua đó giảm tải cho server.
+    \item \textbf{Tối ưu hóa video cho quá trình streaming}: Sau khi đã hoàn thành video, hệ thống sẽ sử dụng thư viện ffmpeg để chuyển đổi định dạng video sang m3u8, giúp tối ưu hóa cho quá trình streaming video trên web. 
+    \item \textbf{Lưu video vào CSDL}: Video sau khi được tối ưu hóa sẽ được lưu vào bảng \texttt{video\_chunk} trong cơ sở dữ liệu,.
+\end{enumerate}
+

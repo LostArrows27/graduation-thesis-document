@@ -6,6 +6,7 @@
 - [ ] chỉnh chữ extend + include lên bên trên
 - [ ] bỏ mô tả usecase -> max 10 cai -> 3.3
 - [ ] add description for use-case diagram -> 3.3 -> VD: trong usecase diagram có người dung tương tác -> .....
+- [ ] Them caption cho table / ....
 
 ## DONE 
 - [x] remove log in / sign up -> in 4.2 

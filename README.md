@@ -11,3 +11,7 @@ This is a LaTex document template for writing a thesis. It is designed to be use
 
 ### Tips 💡
 1. ```Ctrl + Click``` on PDF to jump to the corresponding line in the source code
+2. When build error, first delete all build file. Then run 
+```
+bibtex tomtat; pdflatex tomtat
+```

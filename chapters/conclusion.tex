@@ -1,4 +1,8 @@
 \chapter*{Kết luận}
 \addcontentsline{toc}{chapter}{Kết luận}
 
+Khóa luận này đã xây dựng được hệ thống quản lý thư viện ảnh tích hợp AI tạo video với đầy đủ các chức năng cơ bản như quản lý ảnh, phân loại tự động, tìm kiếm ảnh, và các tính năng nâng cao như tổ chức ảnh theo khuôn mặt, địa điểm, tạo album, và đặc biệt là tạo video recap từ bộ sưu tập ảnh với nhiều tùy chọn về chất lượng, chủ đề, nhạc nền, tiêu đề, v.v.
 
+Bằng việc ứng dụng các mô hình AI như OpenCLIP và Face Recognition, hệ thống có khả năng tự động phân loại và gán nhãn ảnh, nhận diện khuôn mặt người, giúp người dùng quản lý bộ sưu tập hình ảnh của mình một cách thông minh và hiệu quả. Quy trình tạo video slideshow được xây dựng với các thiết kế hấp dẫn cho phần Intro, Content và Outro, tích hợp thêm trí tuệ nhân tạo để tạo caption phù hợp cho từng video. Những tính năng này không chỉ giúp người dùng tiết kiệm thời gian mà còn mang lại trải nghiệm sử dụng thân thiện và thuận tiện.
+
+Trong quá trình phát triển, do giới hạn của tài nguyên phần cứng, hệ thống AI và render video hiện chỉ được em chạy trên môi trường local. Đôi khi có sự cạnh tranh tài nguyên GPU giữa các service như phân loại khuôn mặt và gán nhãn ảnh, khiến chúng không thể chạy song song. Thời gian phân loại trung bình cho 300 gương mặt hiện đang là khoảng 10 giây, em sẽ cải thiện thêm về mặt hiệu suất và độ chính xác của thuật toán trong các phiên bản tiếp theo.

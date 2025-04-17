@@ -1,1 +1,43 @@
 \subsection{Kiểm thử tương tác người dùng trên giao diện ứng dụng}
+
+Hệ thống triển khai kiểm thử tương tác người dùng trên giao diện với các ca kiểm thử tính năng chính của hệ thống được báo cáo lại trong bảng \ref{tab:ui-test-cases}.
+
+\small
+\begin{xltabular}{\textwidth}{|c|p{5cm}|X|c|}
+    \caption{Các kịch bản kiểm thử tương tác người dùng} \label{tab:ui-test-cases} \\
+    \hline
+    \textbf{STT} & \textbf{Ca kiểm thử} & \textbf{Kết quả kỳ vọng} & \textbf{Tình trạng} \\
+    \hline
+    \endfirsthead
+    
+    \multicolumn{4}{c}{\tablename\ \thetable{} (tiếp theo)} \\
+    \hline
+    \textbf{STT} & \textbf{Ca kiểm thử} & \textbf{Kết quả kỳ vọng} & \textbf{Tình trạng} \\
+    \hline
+    \endhead
+    
+    \hline \multicolumn{4}{r}{\textit{Tiếp trang sau}} \\
+    \endfoot
+    
+    \hline
+    \endlastfoot
+    
+    1 & Đăng nhập với tài khoản hợp lệ & Người dùng được chuyển hướng đến màn hình chính và hiển thị thư viện ảnh & Đạt \\
+    \hline
+    2 & Đăng nhập với mật khẩu không chính xác & Hiển thị thông báo lỗi "Mật khẩu không chính xác" & Đạt \\
+    \hline
+    3 & Tải lên ảnh mới từ thiết bị & Ảnh được hiển thị trong thư viện và được phân loại tự động & Đạt \\
+    \hline
+    4 & Tìm kiếm ảnh bằng từ khóa & Hiển thị danh sách ảnh có liên quan đến từ khóa & Đạt \\
+    \hline
+    5 & Phân loại ảnh theo khuôn mặt & Hệ thống nhóm các ảnh có cùng khuôn mặt với độ chính xác trên 85\% & Đạt \\
+    \hline
+    6 & Tạo album mới và thêm ảnh vào & Album được tạo và hiển thị trong danh sách album với đúng số lượng ảnh & Đạt \\
+    \hline
+    7 & Tạo video recap từ ảnh trong album & Hệ thống tạo video và hiển thị trạng thái xử lý theo thời gian thực & Đạt \\
+    \hline
+    8 & Xem ảnh theo vị trí trên bản đồ & Bản đồ hiển thị các điểm đánh dấu ảnh theo đúng tọa độ GPS & Đạt \\
+    \hline
+    9 & Lọc ảnh theo ngày & Hiển thị chính xác những ảnh được chụp trong khoảng thời gian đã chọn & Đạt \\
+    \hline
+\end{xltabular}

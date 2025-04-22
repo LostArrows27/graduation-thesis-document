@@ -1,8 +1,12 @@
 \subsection{Ca sử dụng xem danh sách khuôn mặt}
 
-\vspace{0.5cm}
+Người dùng xem danh sách các khuôn mặt được hệ thống phát hiện trong ảnh. Khi nhận được yêu cầu từ người dùng, hệ thống sẽ lấy dữ liệu khuôn mặt từ ảnh và phân loại chúng thành các nhóm khuôn mặt. Nếu có những nhóm khuôn mặt đã được tạo trước đó thì hệ thống sẽ so sánh nhóm khuôn mặt mới với nhóm khuôn mặt cũ. Nếu phù hợp thì nhóm mới sẽ thay thế nhóm cũ.  
+
+Mô tả chi tiết cho ca sử dụng xem danh sách khuôn mặt được thể hiện ở Bảng \ref{tab:view-face-usecase} dưới đây. Kèm theo là Bảng \ref{tab:view-face-usecase-activity} về biểu đồ hoạt động, quan hệ và Hình \ref{fig:3-3-10-sequence-diagram} về biểu đồ tuần tự của ca sử dụng này. 
 
 \noindent 
+\begin{table}[H]
+\centering
 \begin{tabularx}{\linewidth}{| l | X |} 
 \hline 
 \textbf{Mô tả} & Người dùng muốn xem các danh sách khuôn mặt xuất hiện trong các bức ảnh tải lên. \\
@@ -23,10 +27,15 @@
 \textbf{Yêu cầu phi chức năng} & -Hệ thống xử lý nhóm khuôn mặt không quá 20s. \\
 \hline 
 \end{tabularx}
+\caption{Mô tả chi tiết ca sử dụng xem danh sách khuôn mặt.}
+\label{tab:view-face-usecase}
+\end{table}
 
 \vspace{0.8cm}
 
 \noindent 
+\begin{table}[H]
+\centering
 \begin{tabular}{| c | c |}
     \hline
     \textbf{Biểu đồ hoạt động} & \textbf{Quan hệ} \\ 
@@ -36,6 +45,9 @@
     \includegraphics[width=0.35\linewidth]{figures/c3/3-3-10-relationship.png} \\ 
     \hline
 \end{tabular}
+\caption{Biểu đồ hoạt động và quan hệ ca sử dụng xem danh sách khuôn mặt.}
+\label{tab:view-face-usecase-activity}
+\end{table}
 
 \begin{figure}[H]
     \centering  

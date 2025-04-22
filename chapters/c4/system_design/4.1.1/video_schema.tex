@@ -35,7 +35,7 @@ Một trong những tính năng nổi bật của hệ thống Smart Gallery là
     
     \begin{figure}[H]
         \centering  
-        \includegraphics[width=1\textwidth]{figures/c4/4_1/prompt.png}
+        \includegraphics[width=0.8\textwidth]{figures/c4/4_1/prompt.png}
         \caption{Prompt Gemini để tạo caption cho video slideshow}
         \label{fig:gemini-prompt}
     \end{figure}
@@ -108,10 +108,9 @@ Một trong những tính năng nổi bật của hệ thống Smart Gallery là
     \end{figure}
 \end{enumerate}
 
-\paragraph{Thuật toán xây dựng kịch bản Content}
+\paragraph{- Thuật toán xây dựng kịch bản (Content):}
 Phần nội dung chính của video được xây dựng dựa trên một thuật toán phân nhóm và tổ chức ảnh thành các chương logic. Thuật toán này chia tập ảnh input của người dùng thành các nhóm dựa trên nhãn location và event của ảnh. Mỗi nhóm sẽ được tổ chức thành một chương riêng biệt trong video. Sau đây là cấu trúc JSON của label 1 ảnh:
 
-\newpage
 \lstset{language=json}
 \begin{lstlisting}[
     caption=Cấu trúc JSON của label ảnh,
@@ -137,21 +136,21 @@ Phần nội dung chính của video được xây dựng dựa trên một thu�
 Quy trình tạo kịch bản phần Content (nội dung chính) của video bao gồm năm bước chính:
 
 \begin{itemize}
-    \item \textbf{Bước 1: Labeling}: Phát hiện và gán nhãn cho những ảnh chưa có label.
+    \item \textbf{Bước 1 - Labeling}: Phát hiện và gán nhãn cho những ảnh chưa có label.
     
-    \item \textbf{Bước 2: Nhóm ảnh theo nhãn}: Nhóm các ảnh theo nhãn label có độ tin cậy cao nhất của từng ảnh. Ví dụ: \{mountain: 2 ảnh\}, \{park: 3 ảnh\}.
+    \item \textbf{Bước 2 - Nhóm ảnh theo nhãn}: Nhóm các ảnh theo nhãn label có độ tin cậy cao nhất của từng ảnh. Ví dụ: \{mountain: 2 ảnh\}, \{park: 3 ảnh\}.
     
-    \item \textbf{Bước 3: Nhóm theo tập nhãn "broader group"}: Các nhóm có số lượng ảnh < 3 sẽ được nhóm chung dựa theo tập nhãn rộng hơn. Tập nhãn "broader group" là tập hợp các nhãn location được phân loại vào các nhóm lớn hơn (như "nature" bao gồm "sea", "mountain", "forest", v.v.). Ví dụ: nếu nhóm "sea" có 2 ảnh và nhóm "mountain" có 2 ảnh, cả hai sẽ được gộp thành nhóm "nature" với 4 ảnh.
+    \item \textbf{Bước 3 - Nhóm theo tập nhãn "broader group"}: Các nhóm có số lượng ảnh < 3 sẽ được nhóm chung dựa theo tập nhãn rộng hơn. Tập nhãn "broader group" là tập hợp các nhãn location được phân loại vào các nhóm lớn hơn (như "nature" bao gồm "sea", "mountain", "forest", v.v.). Ví dụ: nếu nhóm "sea" có 2 ảnh và nhóm "mountain" có 2 ảnh, cả hai sẽ được gộp thành nhóm "nature" với 4 ảnh.
     
-    \item \textbf{Bước 4: Tối ưu hóa nhóm}: Kiểm tra lại các nhóm broader location có số lượng < 3 ảnh. Nếu phát hiện, hệ thống sẽ đưa nhóm này vào nhóm location thuộc broader location đó và có số lượng ảnh nhiều nhất. Ví dụ: nhóm "workspace" (gồm 2 ảnh) sẽ được gộp vào nhóm "classroom" (có 4 ảnh) nếu "classroom" thuộc nhóm broader "workspace" và có số lượng ảnh nhiều nhất trong các nhóm thuộc "workspace".
+    \item \textbf{Bước 4 - Tối ưu hóa nhóm}: Kiểm tra lại các nhóm broader location có số lượng < 3 ảnh. Nếu phát hiện, hệ thống sẽ đưa nhóm này vào nhóm location thuộc broader location đó và có số lượng ảnh nhiều nhất. Ví dụ: nhóm "workspace" (gồm 2 ảnh) sẽ được gộp vào nhóm "classroom" (có 4 ảnh) nếu "classroom" thuộc nhóm broader "workspace" và có số lượng ảnh nhiều nhất trong các nhóm thuộc "workspace".
     
-    \item \textbf{Bước 5: Xử lý ngoại lệ}: Duyệt lại lần cuối, những nhóm chỉ có 1 ảnh sẽ được gộp vào một chương chung có tên "Small Part" hoặc "Khoảnh khắc khác".
-    \item \textbf{Bước 6: Tạo nội dung từng chương}: Trong các chương, với tập ảnh đã được nhóm và phân chia từ các bước trước, hệ thống sẽ tạo tiêu đề chương và chia các ảnh trong chương đó thành các slide ảnh. Mỗi slide ảnh được nhóm theo nhãn activity. 
-    \item \textbf{Bước 7: Tạo tiêu đề và caption}: Tiêu đề chương và caption được tạo tự động bằng mô hình Gemini thông qua prompt đã nêu ở trên. 
-    \item \textbf{Bước 8: Chọn phong cách trình bày}: Hệ thống sẽ chọn ngẫu nhiên một trong các phong cách trình bày đã được chuẩn bị sẵn cho tiêu đề chương và slide ảnh (nếu người dùng không chọn phong cách cụ thể nào).
+    \item \textbf{Bước 5 - Xử lý ngoại lệ}: Duyệt lại lần cuối, những nhóm chỉ có 1 ảnh sẽ được gộp vào một chương chung có tên "Small Part" hoặc "Khoảnh khắc khác".
+    \item \textbf{Bước 6 - Tạo nội dung từng chương}: Trong các chương, với tập ảnh đã được nhóm và phân chia từ các bước trước, hệ thống sẽ tạo tiêu đề chương và chia các ảnh trong chương đó thành các slide ảnh. Mỗi slide ảnh được nhóm theo nhãn activity. 
+    \item \textbf{Bước 7 - Tạo tiêu đề và caption}: Tiêu đề chương và caption được tạo tự động bằng mô hình Gemini thông qua prompt đã nêu ở trên. 
+    \item \textbf{Bước 8 - Chọn phong cách trình bày}: Hệ thống sẽ chọn ngẫu nhiên một trong các phong cách trình bày đã được chuẩn bị sẵn cho tiêu đề chương và slide ảnh (nếu người dùng không chọn phong cách cụ thể nào).
 \end{itemize}
 
-\paragraph{Lưu trữ kịch bản video}
+\paragraph{- Lưu trữ kịch bản video:}
 Sau khi được xây dựng hoàn chỉnh, kịch bản video được lưu trữ vào cơ sở dữ liệu trong bảng \texttt{video\_render}, cụ thể là trong trường \texttt{schema}. Thông tin này sau đó được sử dụng bởi các module render video để tạo ra video slideshow hoàn chỉnh theo kịch bản đã định.
 
 Ngoài ra, việc lưu trữ kịch bản cho phép hệ thống:

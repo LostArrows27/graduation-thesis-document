@@ -1,8 +1,13 @@
 \subsection{Ca sử dụng tạo album}
 
-\vspace{0.5cm}
+Người dùng sau khi tải ảnh lên hệ thống có thể tạo album để phân loại ảnh theo chủ đề. Hệ thống sẽ sắp xếp ảnh theo thứ tự thời gian tải lên và hiển thị dưới dạng lưới cho người dùng.
+
+Mô tả chi tiết cho ca sử dụng tạo album được thể hiện ở Bảng \ref{tab:create-album-usecase} dưới đây. Kèm theo là Bảng \ref{tab:create-album-usecase-activity} về biểu đồ hoạt động, quan hệ và Hình \ref{fig:3-3-7-sequence-diagram} về biểu đồ tuần tự của ca sử dụng này. 
 
 \noindent 
+
+\begin{table}[H]
+\centering
 \begin{tabularx}{\linewidth}{| l | X |} 
 \hline 
 \textbf{Mô tả} & Người dùng tạo album mới trong thư viện ảnh. \\
@@ -22,10 +27,15 @@
 \textbf{Yêu cầu phi chức năng} & Hệ thống xử lý tạo album không quá 2s. \\
 \hline 
 \end{tabularx}
+\caption{Mô tả chi tiết ca sử dụng tạo album.}
+\label{tab:create-album-usecase}
+\end{table}
 
 \vspace{0.8cm}
 
 \noindent 
+\begin{table}[H]
+\centering
 \begin{tabular}{| c | c |}
     \hline
     \textbf{Biểu đồ hoạt động} & \textbf{Quan hệ} \\ 
@@ -35,7 +45,11 @@
     \includegraphics[width=0.35\linewidth]{figures/c3/3-3-7-relationship.png} \\ 
     \hline
 \end{tabular}
+\caption{Biểu đồ hoạt động và quan hệ ca sử dụng tạo album.}
+\label{tab:create-album-usecase-activity}
+\end{table}
 
+\noindent
 \begin{figure}[H]
     \centering  
     \includegraphics[width=1\textwidth]{figures/c3/3-3-7-sequence-diagram.png}

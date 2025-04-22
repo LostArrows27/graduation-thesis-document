@@ -1,9 +1,12 @@
 \subsection{Ca sử dụng điền thông tin cơ bản}
 
-\vspace{0.5cm}
+Người dùng sau khi đăng ký hoặc thiếu thông tin sẽ thực hiện việc điều thông tin cơ bản. Sau khi hoàn thành 4 form thông tin, người dùng mới có thể sử dụng các tính năng khác của hệ thống.
 
+Mô tả chi tiết cho ca sử dụng điền thông tin cơ bản được thể hiện ở Bảng \ref{tab:basic-info-usecase} dưới đây. Kèm theo là Bảng \ref{tab:basic-info-usecase-activity} về biểu đồ hoạt động, quan hệ và Hình \ref{fig:3-3-3-sequence-diagram} về biểu đồ tuần tự của ca sử dụng này. 
 
 \noindent 
+\begin{table}[H]
+\centering
 \begin{tabularx}{\linewidth}{| l | X |} 
 \hline 
 \textbf{Mô tả} & Người dùng cập nhật thông tin cá nhân như ngày sinh, tên, khảo sát, ảnh đại diện và thực hiện 1 số thao tác làm quen với tính năng hệ thống. \\ 
@@ -27,10 +30,14 @@
 \textbf{Yêu cầu phi chức năng} & Hệ thống xử lý gán nhãn ảnh không quá 5s \\
 \hline 
 \end{tabularx}
-
+\caption{Mô tả chi tiết ca sử dụng điền thông tin cơ bản.}
+\label{tab:basic-info-usecase}
+\end{table}
 \vspace{0.8cm}
 
-\noindent 
+\noindent
+\begin{table}[H]
+\centering
 \begin{tabular}{| c | c |}
     \hline
     \textbf{Biểu đồ hoạt động} & \textbf{Quan hệ} \\ 
@@ -40,7 +47,11 @@
     \includegraphics[width=0.35\linewidth]{figures/c3/3-3-3-relationship.png} \\ 
     \hline
 \end{tabular}
+\caption{Biểu đồ hoạt động và quan hệ ca sử dụng điền thông tin cơ bản.}
+\label{tab:basic-info-usecase-activity}
+\end{table}
 
+\noindent
 \begin{figure}[H]
     \centering  
     \includegraphics[width=1.1\textwidth]{figures/c3/3-3-3-sequence-diagram.png}

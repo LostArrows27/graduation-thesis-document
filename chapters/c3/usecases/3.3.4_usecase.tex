@@ -1,8 +1,13 @@
 \subsection{Ca sử dụng tải ảnh lên}
 
-\vspace{0.5cm}
+Người dùng có thể tải ảnh lên hệ thống và được tự động gán nhãn, phân loại cho ảnh. Kết quả gán nhãn sẽ được hiển thị trên màn hình sau khi người dùng tải ảnh lên thành công.
+
+Mô tả chi tiết cho ca sử dụng tải ảnh lên được thể hiện ở Bảng \ref{tab:upload-image-usecase} dưới đây. Kèm theo là Bảng \ref{tab:upload-image-usecase-activity} về biểu đồ hoạt động, quan hệ và Hình \ref{fig:3-3-4-sequence-diagram} về biểu đồ tuần tự của ca sử dụng này. 
 
 \noindent 
+
+\begin{table}[H]
+\centering
 \begin{tabularx}{\linewidth}{| l | X |} 
 \hline 
 \textbf{Mô tả} & Người dùng tải ảnh lên để hệ thống tự động gán nhãn cho ảnh. \\
@@ -23,10 +28,16 @@
 \textbf{Yêu cầu phi chức năng} & Hệ thống xử lý gán nhãn trên 1 ảnh không quá 2s \\
 \hline 
 \end{tabularx}
+\caption{Mô tả chi tiết ca sử dụng tải ảnh lên.}
+\label{tab:upload-image-usecase}
+\end{table}
 
 \vspace{0.8cm}
 
 \noindent 
+
+\begin{table}[H]
+\centering
 \begin{tabular}{| c | c |}
     \hline
     \textbf{Biểu đồ hoạt động} & \textbf{Quan hệ} \\ 
@@ -36,6 +47,9 @@
     \includegraphics[width=0.35\linewidth]{figures/c3/3-3-4-relationship.png} \\ 
     \hline
 \end{tabular}
+\caption{Biểu đồ hoạt động và quan hệ ca sử dụng tải ảnh lên.}
+\label{tab:upload-image-usecase-activity}
+\end{table}
 
 \begin{figure}[H]
     \centering  

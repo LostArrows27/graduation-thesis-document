@@ -41,7 +41,7 @@ Thiết kế cơ sở dữ liệu này cho phép hệ thống Smart Gallery lưu
 
 Ngoài các bảng dữ liệu chính, hệ thống còn sử dụng 2 tính năng của cơ sở dữ liệu PostgreSQL là triggers và functions để tự động hóa một số quy trình trong cơ sở dữ liệu. Cụ thể:
 \begin{itemize}
-    \item \textbf{trigger\_image\_face\_detection}: 1 Trigger được kích hoạt khi có 1 ảnh mới được chèn vào bảng "images". Tự động thông báo cho server để xử lý và phát hiện khuôn mặt trong bức ảnh.
+    \item \textbf{trigger\_image\_face\_detection}: là 1 hàm được kích hoạt khi có 1 ảnh mới được chèn vào bảng "images". Tự động thông báo cho server để xử lý và phát hiện khuôn mặt trong bức ảnh.
     
     % \newpage
     % \lstinputlisting[
@@ -51,7 +51,7 @@ Ngoài các bảng dữ liệu chính, hệ thống còn sử dụng 2 tính nă
     %     numberstyle=\small\color{gray},
     % ]{snipet/sql/search_similar_images.sql}
     
-    \item \textbf{search\_similar\_images}: 1 Function được sử dụng để tìm kiếm các hình ảnh tương tự trong cơ sở dữ liệu dựa trên vector đặc trưng của hình ảnh. Hàm này sử dụng phương pháp tìm kiếm cosine similarity để tìm ra các hình ảnh có vector tương tự nhất với vector đầu vào. Hàm này được gọi từ server khi người dùng thực hiện tìm kiếm hình ảnh. 
+    \item \textbf{search\_similar\_images}: là 1 hàm được sử dụng để tìm kiếm các hình ảnh tương tự trong cơ sở dữ liệu dựa trên vector đặc trưng của hình ảnh. Hàm này sử dụng phương pháp tìm kiếm cosine similarity để tìm ra các hình ảnh có vector tương tự nhất với vector đầu vào. Hàm này được gọi từ server khi người dùng thực hiện tìm kiếm hình ảnh. 
     
     % \lstinputlisting[
     %     language=SQL,

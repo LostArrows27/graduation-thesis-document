@@ -1,8 +1,12 @@
 \subsection{Ca sử dụng xem ảnh theo địa điểm}
 
-\vspace{0.5cm}
+Sau khi cập nhật vị trí cho ảnh, người dùng có thể xem danh sách ảnh đã chụp tại một địa điểm cụ thể. Hệ thống sẽ tự động lấy vị trí hiện tại của người dùng (nếu được cấp quyền) và hiển thị danh sách ảnh trên bản đồ. Người dùng có thể bấm vào ảnh trong danh sách để xem vị trí chi tiết của ảnh trên bản đồ. Với yêu cầu là trước đó, hệ thống đã hoàn thành phân loại các nhóm địa điểm ảnh.
+
+Mô tả chi tiết cho ca sử dụng xem ảnh theo địa điểm được thể hiện ở Bảng \ref{tab:view-image-location-usecase} dưới đây. Kèm theo là Bảng \ref{tab:view-image-location-usecase-activity} về biểu đồ hoạt động, quan hệ và Hình \ref{fig:3-3-14-sequence-diagram} về biểu đồ tuần tự của ca sử dụng này. 
 
 \noindent 
+\begin{table}[H]
+\centering
 \begin{tabularx}{\linewidth}{| l | X |} 
 \hline 
 \textbf{Mô tả} & Người dùng xem danh sách ảnh được chụp tại 1 địa điểm. \\
@@ -26,10 +30,13 @@
                            - Hệ thống lấy được dữ liệu hiện tại vị trí người dùng (nếu được cấp quyền). \\
 \hline 
 \end{tabularx}
-
-\vspace{0.8cm}
+\caption{Mô tả chi tiết ca sử dụng xem ảnh theo địa điểm.}
+\label{tab:view-image-location-usecase}
+\end{table}
 
 \noindent 
+\begin{table}[H]
+\centering
 \begin{tabular}{| c | c |}
     \hline
     \textbf{Biểu đồ hoạt động} & \textbf{Quan hệ} \\ 
@@ -39,6 +46,9 @@
     \includegraphics[width=0.35\linewidth]{figures/c3/3-3-14-relationship.png} \\ 
     \hline
 \end{tabular}
+\caption{Biểu đồ hoạt động và quan hệ ca sử dụng xem ảnh theo địa điểm.}
+\label{tab:view-image-location-usecase-activity}
+\end{table}
 
 \begin{figure}[H]
     \centering  

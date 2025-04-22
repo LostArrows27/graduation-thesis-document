@@ -1,8 +1,28 @@
 \subsection{Ca sử dụng tạo video recap}
 
-\vspace{0.2cm}
+Người dùng có thể tạo video recap từ những ảnh đã tải lên hệ thống cũng như từ máy người dùng. Hệ thống sẽ tự động tạo kịch bản cho video và những tùy chỉnh mặc định cho video từ danh sách ảnh: style khung ảnh, nhạc nền, chất lượng video, thời lượng video, chủ đề video. Người dùng có thể tùy chỉnh lại các thông số này trước khi gửi yêu cầu tạo video. 
+
+Mô tả chi tiết cho ca sử dụng tạo video recap được thể hiện ở Bảng \ref{tab:create-video-recap-usecase} dưới đây. Kèm theo là Bảng \ref{tab:create-video-recap-usecase-activity} về biểu đồ hoạt động, quan hệ và Hình \ref{fig:3-3-9-sequence-diagram} về biểu đồ tuần tự của ca sử dụng này. 
 
 \noindent 
+\begin{table}[H]
+\centering
+\begin{tabular}{| c | c |}
+    \hline
+    \textbf{Biểu đồ hoạt động} & \textbf{Quan hệ} \\ 
+    \hline
+    \includegraphics[width=0.6\linewidth]{figures/c3/3-3-9-activity-diagram.png} 
+    &  
+    \includegraphics[width=0.35\linewidth]{figures/c3/3-3-9-relationship.png} \\ 
+    \hline
+\end{tabular}
+\caption{Biểu đồ hoạt động và quan hệ ca sử dụng tạo video recap.}
+\label{tab:create-video-recap-usecase-activity}
+\end{table}
+
+\noindent 
+\begin{table}[H]
+\centering
 \begin{tabularx}{\linewidth}{| l | X |} 
 \hline 
 \textbf{Mô tả} & Người dùng tạo video recap từ các ảnh trong thư viện. \\
@@ -29,23 +49,13 @@
                                  - Hệ thống cập nhật trạng thái video theo thời gian thực. \\
 \hline 
 \end{tabularx}
-
-\vspace{0.8cm}
-
-\noindent 
-\begin{tabular}{| c | c |}
-    \hline
-    \textbf{Biểu đồ hoạt động} & \textbf{Quan hệ} \\ 
-    \hline
-    \includegraphics[width=0.6\linewidth]{figures/c3/3-3-9-activity-diagram.png} 
-    &  
-    \includegraphics[width=0.35\linewidth]{figures/c3/3-3-9-relationship.png} \\ 
-    \hline
-\end{tabular}
+\caption{Mô tả chi tiết ca sử dụng tạo video recap.}
+\label{tab:create-video-recap-usecase}
+\end{table}
 
 \begin{figure}[H]
     \centering  
-    \includegraphics[width=1.1\textwidth]{figures/c3/3-3-9-sequence-diagram.png}
+    \includegraphics[width=1\textwidth]{figures/c3/3-3-9-sequence-diagram.png}
     \caption{Biểu đồ tuần tự ca sử dụng tạo video recap.}
     \label{fig:3-3-9-sequence-diagram}
 \end{figure}

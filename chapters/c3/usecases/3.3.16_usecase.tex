@@ -1,8 +1,28 @@
 \subsection{Ca sử dụng tìm kiếm hình ảnh}
 
-\vspace{0.5cm}
+Sau khi tải ảnh lên, người dùng có thể tìm kiếm ảnh theo nhiều tiêu chí khác nhau như thời gian, albums, tên khuôn mặt, tên ảnh, địa điểm, truy vấn AI. Hệ thống sẽ tự động gợi ý cho người dùng những bộ lọc tìm kiếm phù hợp với từ khóa tìm kiếm. Người dùng có thể chọn một trong những gợi ý đó để tìm kiếm ảnh nhanh hơn. Hệ thống sau đó sẽ lưu lịch sử tìm kiếm và hiển thị kết quả cho người dùng. 
+
+Mô tả chi tiết cho ca sử dụng tìm kiếm hình ảnh được thể hiện ở Bảng \ref{tab:search-image-usecase} dưới đây. Kèm theo là Bảng \ref{tab:search-image-usecase-activity} về biểu đồ hoạt động, quan hệ và Hình \ref{fig:3-3-16-sequence-diagram} về biểu đồ tuần tự của ca sử dụng này. 
 
 \noindent 
+\begin{table}[H]
+\centering
+\begin{tabular}{| c | c |}
+    \hline
+    \textbf{Biểu đồ hoạt động} & \textbf{Quan hệ} \\ 
+    \hline
+    \includegraphics[width=0.6\linewidth]{figures/c3/3-3-16-activity-diagram.png} 
+    &  
+    \includegraphics[width=0.35\linewidth]{figures/c3/3-3-16-relationship.png} \\ 
+    \hline
+\end{tabular}
+\caption{Biểu đồ hoạt động và quan hệ ca sử dụng tìm kiếm hình ảnh.}
+\label{tab:search-image-usecase-activity}
+\end{table}
+
+\noindent 
+\begin{table}[H]
+\centering
 \begin{tabularx}{\linewidth}{| l | X |} 
 \hline 
 \textbf{Mô tả} & Người dùng tìm kiếm ảnh với những option hệ thống cung cấp. \\
@@ -28,19 +48,9 @@
                             - Hệ thống hiển thị gợi ý tìm kiếm không quá 1s. \\
 \hline 
 \end{tabularx}
-
-\vspace{0.8cm}
-
-\noindent 
-\begin{tabular}{| c | c |}
-    \hline
-    \textbf{Biểu đồ hoạt động} & \textbf{Quan hệ} \\ 
-    \hline
-    \includegraphics[width=0.6\linewidth]{figures/c3/3-3-16-activity-diagram.png} 
-    &  
-    \includegraphics[width=0.35\linewidth]{figures/c3/3-3-16-relationship.png} \\ 
-    \hline
-\end{tabular}
+\caption{Mô tả chi tiết ca sử dụng tìm kiếm hình ảnh.}
+\label{tab:search-image-usecase}
+\end{table}
 
 \begin{figure}[H]
     \centering  

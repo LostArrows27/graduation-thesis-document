@@ -1,8 +1,13 @@
 \subsection{Ca sử dụng xem danh sách video recap}
 
-\vspace{0.5cm}
+Người dùng sau khi gửi yêu cầu tạo video có thể theo dõi trạng thái video của mình trong danh sách video. Hệ thống sẽ cập nhật trạng thái và tiến độ của video theo thời gian thực.  
+
+Mô tả chi tiết cho ca sử dụng xem danh sách video recap được thể hiện ở Bảng \ref{tab:view-video-recap-usecase} dưới đây. Kèm theo là Bảng \ref{tab:view-video-recap-usecase-activity} về biểu đồ hoạt động, quan hệ và Hình \ref{fig:3-3-8-sequence-diagram} về biểu đồ tuần tự của ca sử dụng này. 
 
 \noindent 
+
+\begin{table}[H]
+\centering
 \begin{tabularx}{\linewidth}{| l | X |} 
 \hline 
 \textbf{Mô tả} & Người dùng xem danh sách và trạng thái của các video đã tạo. \\
@@ -21,10 +26,15 @@
                         - Hệ thống cập nhật trạng thái video thời gian thực, không quá 0.5s. \\   
 \hline 
 \end{tabularx}
+\caption{Mô tả chi tiết ca sử dụng xem danh sách video recap.}
+\label{tab:view-video-recap-usecase}
+\end{table}
 
 \vspace{0.8cm}
 
 \noindent 
+\begin{table}[H]
+\centering
 \begin{tabular}{| c | c |}
     \hline
     \textbf{Biểu đồ hoạt động} & \textbf{Quan hệ} \\ 
@@ -34,6 +44,9 @@
     \includegraphics[width=0.35\linewidth]{figures/c3/3-3-8-relationship.png} \\ 
     \hline
 \end{tabular}
+\caption{Biểu đồ hoạt động và quan hệ ca sử dụng xem danh sách video recap.}
+\label{tab:view-video-recap-usecase-activity}
+\end{table}
 
 \begin{figure}[ht]
     \centering  

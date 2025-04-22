@@ -14,6 +14,9 @@
 # Compiled PDF files
 *.pdf
 
+# Exclude tomtat.pdf
+!tomtat.pdf
+
 # Temporary files
 *.tmp
 *.bak

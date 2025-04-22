@@ -1,7 +1,6 @@
 ## TODO
-- [ ] viet failed test trong E2E testing -> bao **cao**
+- [ ] viet failed test trong E2E testing -> bao cao
 - [ ] max 70 trang
-- [ ] chinh phan 3 de caption text ngan hon
 
 ## DONE 
 - [x] remove log in / sign up -> in 4.2 
@@ -14,3 +13,4 @@
 - [x] chỉnh chữ extend + include lên bên trên
 - [x] add description for use-case diagram -> 3.3 -> VD: trong usecase diagram có người dung tương tác -> .....
 - [x] Them caption cho table / ....
+- [x] chinh phan 3 de caption text ngan hon

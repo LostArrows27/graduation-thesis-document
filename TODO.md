@@ -1,5 +1,4 @@
 ## TODO
-- [ ] bo cac usecase xem + tao album
 - [ ] them so thu tu trong bang flow hanh dong 4.1 -> kien truc he thong
 
 ## DONE 
@@ -17,6 +16,7 @@
 - [x] caption bang o tren -> khong co dau cham
 - [x] cat ngan bang dung tabularX -> 
 - [x] caption aenh -> co dau cham
+- [x] them controller cho cac use-case sequence diagram
 
 ## SKIP
 - [ ] viet failed test trong E2E testing -> bao cao

@@ -5,25 +5,9 @@ Sau khi tải ảnh lên, người dùng có thể tìm kiếm ảnh theo nhiề
 Mô tả chi tiết cho ca sử dụng tìm kiếm hình ảnh được thể hiện ở Bảng \ref{tab:search-image-usecase} dưới đây. Kèm theo là Bảng \ref{tab:search-image-usecase-activity} về biểu đồ hoạt động, quan hệ và Hình \ref{fig:3-3-16-sequence-diagram} về biểu đồ tuần tự của ca sử dụng này. 
 
 \noindent 
-\begin{table}[H]
-\centering
-\begin{tabular}{| c | c |}
-    \hline
-    \textbf{Biểu đồ hoạt động} & \textbf{Quan hệ} \\ 
-    \hline
-    \includegraphics[width=0.6\linewidth]{figures/c3/3-3-16-activity-diagram.png} 
-    &  
-    \includegraphics[width=0.35\linewidth]{figures/c3/3-3-16-relationship.png} \\ 
-    \hline
-\end{tabular}
-\caption{Biểu đồ hoạt động và quan hệ ca sử dụng tìm kiếm hình ảnh.}
-\label{tab:search-image-usecase-activity}
-\end{table}
-
-\noindent 
-\begin{table}[H]
-\centering
-\begin{tabularx}{\linewidth}{| l | X |} 
+\begin{xltabular}{\linewidth}{| l | X |} 
+\caption{Mô tả chi tiết ca sử dụng tìm kiếm hình ảnh}
+\label{tab:search-image-usecase}\\
 \hline 
 \textbf{Mô tả} & Người dùng tìm kiếm ảnh với những option hệ thống cung cấp. \\
 \hline 
@@ -47,9 +31,22 @@ Mô tả chi tiết cho ca sử dụng tìm kiếm hình ảnh được thể hi
 \textbf{Yêu cầu phi chức năng} & - Hệ thống lấy truy vấn ảnh không quá 2s. \newline
                             - Hệ thống hiển thị gợi ý tìm kiếm không quá 1s. \\
 \hline 
-\end{tabularx}
-\caption{Mô tả chi tiết ca sử dụng tìm kiếm hình ảnh.}
-\label{tab:search-image-usecase}
+\end{xltabular}
+
+\noindent 
+\begin{table}[H]
+\centering
+\caption{Biểu đồ hoạt động và quan hệ ca sử dụng tìm kiếm hình ảnh}
+\label{tab:search-image-usecase-activity}
+\begin{tabular}{| c | c |}
+    \hline
+    \textbf{Biểu đồ hoạt động} & \textbf{Quan hệ} \\ 
+    \hline
+    \includegraphics[width=0.6\linewidth]{figures/c3/3-3-16-activity-diagram.png} 
+    &  
+    \includegraphics[width=0.35\linewidth]{figures/c3/3-3-16-relationship.png} \\ 
+    \hline
+\end{tabular}
 \end{table}
 
 \begin{figure}[H]

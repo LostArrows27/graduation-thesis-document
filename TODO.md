@@ -1,6 +1,6 @@
 ## TODO
-- [ ] viet failed test trong E2E testing -> bao cao
-- [ ] max 70 trang
+- [ ] bo cac usecase xem + tao album
+- [ ] them so thu tu trong bang flow hanh dong 4.1 -> kien truc he thong
 
 ## DONE 
 - [x] remove log in / sign up -> in 4.2 
@@ -14,3 +14,10 @@
 - [x] add description for use-case diagram -> 3.3 -> VD: trong usecase diagram có người dung tương tác -> .....
 - [x] Them caption cho table / ....
 - [x] chinh phan 3 de caption text ngan hon
+- [x] caption bang o tren -> khong co dau cham
+- [x] cat ngan bang dung tabularX -> 
+- [x] caption aenh -> co dau cham
+
+## SKIP
+- [ ] viet failed test trong E2E testing -> bao cao
+- [ ] max 70 trang

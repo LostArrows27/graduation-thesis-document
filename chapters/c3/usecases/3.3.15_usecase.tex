@@ -5,25 +5,9 @@ Người dùng có thể thêm thủ công vị trí cho ảnh đã tải lên t
 Mô tả chi tiết cho ca sử dụng thêm vị trí cho ảnh được thể hiện ở Bảng \ref{tab:add-location-usecase} dưới đây. Kèm theo là Bảng \ref{tab:add-location-usecase-activity} về biểu đồ hoạt động, quan hệ và Hình \ref{fig:3-3-15-sequence-diagram} về biểu đồ tuần tự của ca sử dụng này. 
 
 \noindent 
-\begin{table}[H]
-\centering
-\begin{tabular}{| c | c |}
-    \hline
-    \textbf{Biểu đồ hoạt động} & \textbf{Quan hệ} \\ 
-    \hline
-    \includegraphics[width=0.6\linewidth]{figures/c3/3-3-15-activity-diagram.png} 
-    &  
-    \includegraphics[width=0.35\linewidth]{figures/c3/3-3-15-relationship.png} \\ 
-    \hline
-\end{tabular}
-\caption{Biểu đồ hoạt động và quan hệ ca sử dụng thêm vị trí cho ảnh.}
-\label{tab:add-location-usecase-activity}
-\end{table}
-
-\noindent 
-\begin{table}[H]
-\centering
-\begin{tabularx}{\linewidth}{| l | X |} 
+\begin{xltabular}{\linewidth}{| l | X |} 
+\caption{Mô tả chi tiết ca sử dụng thêm vị trí cho ảnh}
+\label{tab:add-location-usecase}\\
 \hline 
 \textbf{Mô tả} & Người dùng thêm vị trí cho ảnh. \\
 \hline 
@@ -48,11 +32,23 @@ Mô tả chi tiết cho ca sử dụng thêm vị trí cho ảnh được thể 
 \textbf{Yêu cầu phi chức năng} & - Hệ thống lấy dữ liệu của địa điểm không quá 2s. \newline
                            - Hệ thống lấy được dữ liệu hiện tại vị trí người dùng (nếu được cấp quyền). \\
 \hline 
-\end{tabularx}
-\caption{Mô tả chi tiết ca sử dụng thêm vị trí cho ảnh.}
-\label{tab:add-location-usecase}
-\end{table}
+\end{xltabular}
 
+\noindent 
+\begin{table}[H]
+\centering
+\caption{Biểu đồ hoạt động và quan hệ ca sử dụng thêm vị trí cho ảnh}
+\label{tab:add-location-usecase-activity}
+\begin{tabular}{| c | c |}
+    \hline
+    \textbf{Biểu đồ hoạt động} & \textbf{Quan hệ} \\ 
+    \hline
+    \includegraphics[width=0.6\linewidth]{figures/c3/3-3-15-activity-diagram.png} 
+    &  
+    \includegraphics[width=0.35\linewidth]{figures/c3/3-3-15-relationship.png} \\ 
+    \hline
+\end{tabular}
+\end{table}
 
 \begin{figure}[H]
     \centering  

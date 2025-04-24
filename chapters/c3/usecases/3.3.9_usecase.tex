@@ -5,8 +5,37 @@ Người dùng có thể tạo video recap từ những ảnh đã tải lên h�
 Mô tả chi tiết cho ca sử dụng tạo video recap được thể hiện ở Bảng \ref{tab:create-video-recap-usecase} dưới đây. Kèm theo là Bảng \ref{tab:create-video-recap-usecase-activity} về biểu đồ hoạt động, quan hệ và Hình \ref{fig:3-3-9-sequence-diagram} về biểu đồ tuần tự của ca sử dụng này. 
 
 \noindent 
+\begin{xltabular}{\linewidth}{| l | X |} 
+\caption{Mô tả chi tiết ca sử dụng xem ảnh theo địa điểm.}
+\label{tab:view-image-location-usecase}\\
+\hline 
+\textbf{Mô tả} & Người dùng xem danh sách ảnh được chụp tại 1 địa điểm. \\
+\hline 
+\textbf{Luồng cơ bản} & 1. Người dùng bấm vào nhóm địa điểm muốn xem danh sách ảnh chụp tại nơi đó. \newline
+                       2. Hệ thống điều hướng đến trang danh sách ảnh của địa điểm. \newline
+                       3. Hệ thống lấy thông tin danh sách ảnh chụp tại địa điểm và nhóm theo ngày. \newline
+                       4. Hệ thống hiển thị hộp thoại cấp quyền thông tin vị trí hiện tại. \newline
+                       5. Người dùng cấp quyền truy cập vị trí hiện tại. \newline
+                       6. Hệ thống hiển thị danh sách ảnh chụp trên bản đồ. \\
+\hline
+\textbf{Luồng thay thế} & - Người dùng không cấp quyền truy cập vị trí. \newline
+                          - Hệ thống không lấy được dữ liệu ảnh của địa điểm. \\
+\hline
+\textbf{Tiền điều kiện} & - Người dùng đã đăng nhập vào hệ thống. \newline
+                          - Có ít nhất 1 bức ảnh đã được cập nhật vị trí chụp ảnh. \\
+\hline
+\textbf{Hậu điều kiện} & - Người dùng có thể bấm vào ảnh trong danh sách để xem vị trí chi tiết của ảnh trên bản đồ. \\
+\hline 
+\textbf{Yêu cầu phi chức năng} & - Hệ thống lấy dữ liệu ảnh của địa điểm không quá 1s. \newline
+                           - Hệ thống lấy được dữ liệu hiện tại vị trí người dùng (nếu được cấp quyền). \\
+\hline 
+\end{xltabular}
+
+\noindent 
 \begin{table}[H]
 \centering
+\caption{Biểu đồ hoạt động và quan hệ ca sử dụng tạo video recap}
+\label{tab:create-video-recap-usecase-activity}
 \begin{tabular}{| c | c |}
     \hline
     \textbf{Biểu đồ hoạt động} & \textbf{Quan hệ} \\ 
@@ -16,41 +45,6 @@ Mô tả chi tiết cho ca sử dụng tạo video recap được thể hiện �
     \includegraphics[width=0.35\linewidth]{figures/c3/3-3-9-relationship.png} \\ 
     \hline
 \end{tabular}
-\caption{Biểu đồ hoạt động và quan hệ ca sử dụng tạo video recap.}
-\label{tab:create-video-recap-usecase-activity}
-\end{table}
-
-\noindent 
-\begin{table}[H]
-\centering
-\begin{tabularx}{\linewidth}{| l | X |} 
-\hline 
-\textbf{Mô tả} & Người dùng tạo video recap từ các ảnh trong thư viện. \\
-\hline 
-\textbf{Luồng cơ bản} & 1. Người dùng bấm nút tạo video recap từ thanh công cụ ở dưới màn hình. \newline
-                       2. Hệ thống hiển thị giao diện chọn danh sách ảnh.\newline
-                       3. Người dùng chọn ảnh trong danh sách ảnh đã tải lên hệ thống. \newline
-                       4. Người dùng chọn ảnh trong danh sách ảnh của máy người dùng.\newline
-                       5. Người dùng bấm submit danh sách ảnh. \newline
-                       6. Hệ thống tạo kịch bản cho video và những tùy chỉnh mặc định cho video từ danh sách ảnh: style khung ảnh, nhạc nền, chất lượng video, thời lượng video, chủ đề video. \newline
-                       7. Người dùng chỉnh các tùy chỉnh cho video: style khung ảnh, nhạc nền, chất lượng video, thời lượng video, chủ đề video. \newline
-                       8. Người dùng bấm submit để tạo video. \newline
-                       9. Hệ thống tạo video từ danh sách ảnh và kịch bản đã chọn. \newline
-                       10. Hệ thống điều hướng đến màn hình xem trạng thái tạo video theo thời gian thực. \\
-\hline 
-\textbf{Tiền điều kiện} & - Người dùng đã đăng nhập vào hệ thống. \newline
-                            - Người dùng đã có ảnh trong thư viện. \\
-\hline
-\textbf{Hậu điều kiện} & - Hệ thống hiển thị trạng thái và tiến độ tạo video theo thời gian thực. \newline
-                         - Người dùng quay về màn hình danh sách video để theo dõi trạng thái video đã tạo. \\
-\hline 
-\textbf{Yêu cầu phi chức năng} & - Hệ thống xử lý tạo kịch bản video không quá 20s. \newline 
-                                 - Hệ thống tạo video không quá 5 phút. \newline
-                                 - Hệ thống cập nhật trạng thái video theo thời gian thực. \\
-\hline 
-\end{tabularx}
-\caption{Mô tả chi tiết ca sử dụng tạo video recap.}
-\label{tab:create-video-recap-usecase}
 \end{table}
 
 \begin{figure}[H]

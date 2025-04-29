@@ -1,14 +1,14 @@
 \section{Giới thiệu bài toán}
 
-Tính đến năm 2023, Việt Nam có khoảng 77,93 triệu người dùng Internet, chiếm 79,1\% dân số, trong khi 70 triệu người dùng mạng xã hội chiếm 71\% dân số\cite{vnetwork2023}. Cũng theo một khảo sát từ DataReportal vào năm 2024, Việt Nam là một trong những quốc gia có sự tăng trưởng mạnh mẽ trong việc sử dụng internet và các thiết bị số\cite{datareportal}. Việc sử dụng điện thoại thông minh để chụp ảnh trở thành thói quen hàng ngày của nhiều người dân Việt Nam, với khoảng 80\% người dùng smartphone chụp ảnh ít nhất 23 tấm hình mỗi tuần\cite{qandme}.
+Tính đến năm 2023, Việt Nam có khoảng 77,93 triệu người dùng Internet, chiếm 79,1\% dân số, trong khi đó có 70 triệu người dùng mạng xã hội và chiếm 71\% dân số\cite{vnetwork2023}. Cũng theo một khảo sát từ DataReportal vào năm 2024, Việt Nam là một trong những quốc gia có sự tăng trưởng mạnh mẽ trong việc sử dụng internet và các thiết bị số\cite{datareportal}. Việc sử dụng điện thoại thông minh để chụp ảnh trở thành thói quen hàng ngày của nhiều người dân Việt Nam, với khoảng 80\% người dùng smartphone chụp ảnh ít nhất 23 tấm hình mỗi tuần\cite{qandme}.
 
 Vì vậy, việc quản lý khối lượng ảnh khổng lồ đang đặt ra nhiều thách thức cho người dùng:
 \begin{itemize}
 	\item[-] Khó khăn trong phân loại và tìm kiếm: Khảo sát của Adobe (2022)\cite{catchlight} chỉ ra rằng 74\% người dùng cảm thấy "quá tải" vì không thể tổ chức ảnh hiệu quả, trong khi 62\% mất hơn 10 phút để tìm một bức ảnh cũ.
-	\item[-] Tính năng tổng hợp ảnh còn hạn chế: các tính năng tạo "video kỉ niệm" của các ứng dụng quản lý ảnh hiện hành như Google Photo hay Apple Photo còn sơ sài, thiếu tính năng tùy biến và chỉ là một video đơn giản với các hiệu ứng chuyển cảnh cơ bản\cite{usmobile}.
+	\item[-] Tính năng tổng hợp ảnh còn hạn chế: các tính năng tạo "video kỉ niệm" của các ứng dụng quản lý ảnh hiện hành như Google Photo hay Apple Photo còn sơ sài, thiếu tính năng tùy biến và chỉ cung cấp video đơn giản với các hiệu ứng chuyển cảnh cơ bản\cite{usmobile}.
 \end{itemize}
 
-Do đó một ứng dụng quản lý ảnh thông minh với khả năng phân loại ảnh tự động theo nhiều mục (người, địa điểm, tags, v.v.) và tạo video kỉ niệm với nhiều tùy chọn cho người dùng lúc này là hết sức cần thiết.
+Do đó một ứng dụng quản lý ảnh thông minh với khả năng phân loại ảnh tự động theo nhiều mục (người, địa điểm, tags, v.v.) và đặc biệt là tạo video kỉ niệm với nhiều tùy chọn cho người dùng lúc này là hết sức cần thiết.
 
 % \textbf{Lý do điều chỉnh đề tài:} Ban đầu, nghiên cứu tập trung vào "tạo video slideshow recap từ những ảnh trong nhóm chat", song qua nghiên cứu lại tính hợp lý và việc đã có sẵn các tags labels mà hệ thống tự phân loại cho ảnh, em cho rằng việc tận dụng lại các label ảnh và khuôn mặt được sử dụng trong video slideshow tổng hợp thành 1 tính năng, khiến nó không chỉ là 1 thành phần của video sẽ giúp người dùng quản lý các ảnh dễ dàng dưới dạng 1 thư viện thông minh. Và vì vậy các thành phần trong ứng dụng có thể tái sử dụng lại cũng như có tính ứng dụng cao hơn so với đề tài "Tạo video recap từ nhóm chat" ban đầu. Vì vậy nghiên cứu và hệ thống được phát triển trong khóa luận này sẽ tập trung vào đề tài "Xây dựng ứng dụng quản lý thư viện ảnh tích hợp AI tạo video".  Đề tài được điều chỉnh trọng tâm sang quản lý ảnh nhưng vẫn giữ nguyên tên gọi ban đầu để bảo đảm tính kế thừa, đồng thời tận dụng nền tảng AI tạo video đã phát triển từ ý tưởng gốc. 
 

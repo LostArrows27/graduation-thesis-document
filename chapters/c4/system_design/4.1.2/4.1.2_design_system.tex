@@ -19,7 +19,7 @@ Kiến trúc của hệ thống hoạt động theo như Hình 4.7
 
 \textbf{NodeJS video server:} cung cấp dịch vụ render video cho người dùng. Server này sẽ nhận request tạo video từ client, sau đó resize ảnh bằng Cloudinary resize service, tạo video và lưu video vào kho dữ liệu của Supabase Serivce. 
 
-\textbf{Python AI server:} cung cấp dịch vụ gán nhãn ảnh cho người dung. Ngoài ra server cũng thực hiện việc nhận diện khuôn mặt trong ảnh và nhóm những khuôn mặt tương tự nhau để người dùng có thể dễ dàng tìm kiếm và phân loại ảnh. 
+\textbf{Python AI server:} cung cấp dịch vụ gán nhãn ảnh và tìm kiếm hình ảnh theo văn bản cho người dung. Ngoài ra server cũng thực hiện việc nhận diện khuôn mặt trong ảnh và nhóm những khuôn mặt tương tự nhau để người dùng có thể dễ dàng tìm kiếm và phân loại ảnh. 
 
 \textbf{Supabase Service}: được sử dụng cho các chức năng như lưu trữ ảnh, video, thông tin người dùng và lắng nghe thời gian thực về sự thay đổi của dữ liệu. Bao gồm các dịch vụ như sau:
 \begin{itemize}

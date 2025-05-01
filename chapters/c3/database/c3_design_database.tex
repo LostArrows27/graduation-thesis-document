@@ -3,7 +3,7 @@
 % TODO: add specific database design for the system
 
 Dựa theo những yêu cầu và thiết kế, cơ sở dữ liệu của hệ thống được thiết kế
-như Hình 3.19. Hệ thống sử dụng CSDL PostgreSQL được host trên nền tảng Supabase. Với cụ thể thông tin các bảng như sau: 
+như Hình \ref{fig:3-4-database-diagram}. Hệ thống sử dụng CSDL PostgreSQL được host trên nền tảng Supabase. Với cụ thể thông tin các bảng như sau: 
 \subsection{Các bảng dữ liệu chính}
 \begin{itemize}
     \item \textbf{image}: Lưu trữ thông tin về các hình ảnh được người dùng tải lên. Bảng này chứa các trường quan trọng như "image\_bucket\_id" và "image\_name" (liên kết đến đối tượng lưu trữ trong storage), "uploader\_id" (người tải lên), "image\_features" (vector đặc trưng của ảnh dùng cho tìm kiếm), "labels" (nhãn được gắn tự động), thông tin vị trí (longitude, latitude) và trạng thái nhận dạng khuôn mặt.
@@ -24,6 +24,13 @@ như Hình 3.19. Hệ thống sử dụng CSDL PostgreSQL được host trên n�
     
     \item \textbf{video\_image}: Bảng liên kết giữa video và các hình ảnh được sử dụng trong video đó.
 \end{itemize}
+
+\begin{figure}[H]
+    \centering  
+    \includegraphics[width=1\textwidth]{figures/c3/3-4-database-graph.png}
+    \caption{Cấu trúc cơ sở dữ liệu.}
+    \label{fig:3-4-database-diagram}
+\end{figure}
 
 \subsection{Tích hợp với các bảng hệ thống của Supabase}
 
@@ -51,19 +58,14 @@ Ngoài các bảng dữ liệu chính, hệ thống còn sử dụng 2 tính nă
     %     numberstyle=\small\color{gray},
     % ]{snipet/sql/search_similar_images.sql}
     
-    \item \textbf{search\_similar\_images}: là 1 hàm được sử dụng để tìm kiếm các hình ảnh tương tự trong cơ sở dữ liệu dựa trên vector đặc trưng của hình ảnh. Hàm này sử dụng phương pháp tìm kiếm cosine similarity để tìm ra các hình ảnh có vector tương tự nhất với vector đầu vào. Hàm này được gọi từ server khi người dùng thực hiện tìm kiếm hình ảnh. 
-    
-    % \lstinputlisting[
-    %     language=SQL,
-    %     caption=Function tìm kiếm hình ảnh tương tự,
-    %     inputencoding=utf8,
-    %     numberstyle=\small\color{gray},
-    % ]{snipet/sql/notify_face_detection.sql}
+    \item \textbf{search\_similar\_images}: là 1 hàm được sử dụng để tìm kiếm các hình ảnh tương tự trong cơ sở dữ liệu dựa trên vector đặc trưng của hình ảnh, được thiết kế chi tiết như đona. Hàm này sử dụng phương pháp tìm kiếm cosine similarity để tìm ra các hình ảnh có vector tương tự nhất với vector đầu vào. Hàm được gọi từ server khi người dùng thực hiện tìm kiếm hình ảnh.  Chi tiết hàm được định nghĩa như sau:
+      
+    \lstinputlisting[
+        language=SQL,
+        label=lst:search_similar_images,
+        caption=Hàm tìm kiếm hình ảnh tương tự,
+        inputencoding=utf8,
+        captionpos=t,
+    ]{snipet/sql/search_similar_images.sql}
 \end{itemize}
 
-\begin{figure}[H]
-    \centering  
-    \includegraphics[width=1\textwidth]{figures/c3/3-4-database-graph.png}
-    \caption{Cấu trúc cơ sở dữ liệu.}
-    \label{fig:3-4-database-diagram}
-\end{figure}

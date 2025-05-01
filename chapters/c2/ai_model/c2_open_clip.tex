@@ -24,7 +24,7 @@ OpenCLIP mở rộng mô hình gốc của OpenAI bằng cách cung cấp các c
 
 Trong ứng dụng Smart Gallery, OpenCLIP được triển khai để thực hiện hai chức năng chính: gán nhãn tự động cho hình ảnh và tìm kiếm hình ảnh dựa trên văn bản. Cụ thể hơn, Smart Gallery sử dụng một mô hình OpenCLIP được huấn luyện sẵn, kết hợp với các tập nhãn được định nghĩa trước để phân loại hình ảnh theo các nhãn có độ tương đồng cao nhất.
 
-\textbf{- Gán nhãn tự động cho hình ảnh:} Quá trình gán nhãn tự động được thực hiện theo các bước sau:
+\textbf{Gán nhãn tự động cho hình ảnh:} Quá trình gán nhãn tự động được thực hiện theo các bước sau:
 
 \begin{enumerate}
     \item \textbf{Chuẩn bị tập nhãn:} Smart Gallery sử dụng ba tập nhãn chính: locations (địa điểm), activities (hoạt động), events (sự kiện), và một tập nhãn đặc biệt để phân loại ảnh có liên quan/không liên quan (relate/unrelate). Các tập nhãn này được mã hóa (encode) bằng bộ mã hóa văn bản của OpenCLIP và được lưu dưới dạng file .pt để sử dụng lại, tránh việc phải thực hiện mã hóa lặp lại.
@@ -36,7 +36,7 @@ Trong ứng dụng Smart Gallery, OpenCLIP được triển khai để thực hi
     \item \textbf{Lưu trữ kết quả:} Sau khi hoàn tất việc gán nhãn, cả vector đặc trưng của ảnh (image features) và các nhãn được gán sẽ được lưu vào cơ sở dữ liệu. Việc lưu trữ vector đặc trưng giúp tối ưu hóa quá trình tìm kiếm sau này.
 \end{enumerate}
 
-\textbf{- Tìm kiếm hình ảnh dựa trên văn bản:} Khi người dùng nhập một câu truy vấn tìm kiếm, hệ thống sẽ thực hiện các bước sau:
+\textbf{Tìm kiếm hình ảnh dựa trên văn bản:} Khi người dùng nhập một câu truy vấn tìm kiếm, hệ thống sẽ thực hiện các bước sau:
 
 \begin{enumerate}
     \item Mã hóa câu truy vấn thành vector đặc trưng văn bản (text features) sử dụng bộ mã hóa văn bản của OpenCLIP.

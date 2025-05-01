@@ -151,9 +151,7 @@ Quy trình tạo kịch bản phần Content (nội dung chính) của video bao
 \end{itemize}
 
 \paragraph{- Lưu trữ kịch bản video:}
-Sau khi được xây dựng hoàn chỉnh, kịch bản video được lưu trữ vào cơ sở dữ liệu trong bảng \texttt{video\_render}, cụ thể là trong trường \texttt{schema}. Thông tin này sau đó được sử dụng bởi các module render video để tạo ra video slideshow hoàn chỉnh theo kịch bản đã định.
-
-Ngoài ra, việc lưu trữ kịch bản cho phép hệ thống:
+Sau khi được xây dựng hoàn chỉnh, kịch bản video được lưu trữ vào cơ sở dữ liệu trong bảng \texttt{video\_render}, cụ thể là trong trường \texttt{schema}. Thông tin này sau đó được sử dụng bởi các module render video để tạo ra video slideshow hoàn chỉnh theo kịch bản đã định. Ngoài ra, việc lưu trữ kịch bản cho phép hệ thống:
 \begin{itemize}
     \item[-] Xem lại và chỉnh sửa kịch bản trước khi render nếu cần
     \item[-] Tái sử dụng kịch bản cho các video khác với cùng bộ ảnh
@@ -166,7 +164,8 @@ Video sẽ được hệ thống render dựa trên kịch bản đã lưu trong
 \begin{enumerate}
     \item \textbf{Lấy kịch bản video}: Hệ thống sẽ truy vấn kịch bản video từ bảng \texttt{video\_render} trong cơ sở dữ liệu.
     \item \textbf{Tối ưu hóa render}: Trong quá trình thử nghiệm và đo đạc thời gian tạo video, em đã phát hiện ra rằng thời gian render video bị khá lâu ở phần Intro, nên em đã tối ưu bằng cách upload và resize ảnh của video bằng server của Cloudinary. Do hạn chế về dung lượng upload của Cloudinary, hiện tại phần tối ưu hóa render sẽ chỉ được hệ thống áp dụng cho phần Intro của video.
-    \item \textbf{Render video}: Hệ thống sẽ sử dụng thư viện Remotion để tạo video định dạng mp4 với kịch bản đã lưu. Sau đó lưu video vào 1 thư mục tạm thời trên server. Trong quá trình render, hệ thống sẽ lưu trạng thái render của người dùng vào trong CSDL Redis để tránh tình trạng người dùng tạo nhiều video 1 lúc, qua đó giảm tải cho server.
+    \item \textbf{Ghép kịch bản video}: Hệ thống ghép các yếu tố trong kịch bản video vào các khung hình (frame) được lập trình sẵn. Các yếu tố này bao gồm: ảnh, tiêu đề chương, caption, hiệu ứng chuyển cảnh, âm thanh nền và các yếu tố khác.
+    \item \textbf{Render video}: Hệ thống sẽ sử dụng thư viện Remotion để tạo video định dạng mp4 với các khung hình và kịch bản đã lưu. Sau đó lưu video vào 1 thư mục tạm thời trên server. Trong quá trình render, hệ thống sẽ lưu trạng thái render của người dùng vào trong CSDL Redis để tránh tình trạng người dùng tạo nhiều video 1 lúc, qua đó giảm tải cho server.
     \item \textbf{Tối ưu hóa video cho quá trình streaming}: Sau khi đã hoàn thành video, hệ thống sẽ sử dụng thư viện ffmpeg để chuyển đổi định dạng video sang m3u8, giúp tối ưu hóa cho quá trình streaming video trên web. 
     \item \textbf{Lưu video vào CSDL}: Video sau khi được tối ưu hóa sẽ được lưu vào bảng \texttt{video\_chunk} trong cơ sở dữ liệu,.
 \end{enumerate}

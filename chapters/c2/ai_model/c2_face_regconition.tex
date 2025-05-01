@@ -42,7 +42,7 @@ Trong Smart Gallery, thư viện Face Recognition được ứng dụng để ph
     
     \item \textbf{Lưu trữ và đặt tên mặc định:} Các centroid được lưu vào cơ sở dữ liệu cùng với tên mặc định cho mỗi nhóm khuôn mặt.
     
-    \item \textbf{Cập nhật thông tin nhóm:} Khi có thêm khuôn mặt mới được phát hiện, hệ thống thực hiện phân cụm lại và tính toán centroid mới. Sau đó, hệ thống tính độ tương đồng cosine\cite{cosine} giữa các centroid mới và các centroid đã lưu trước đó. Nếu độ tương đồng vượt quá ngưỡng định trước, hệ thống giữ nguyên centroid cũ và cập nhật thông tin nhóm cho các khuôn mặt mới. Cách tiếp cận này đảm bảo sự nhất quán trong việc phân loại khuôn mặt theo thời gian.
+    \item \textbf{Cập nhật thông tin nhóm:} Khi có thêm khuôn mặt mới được phát hiện, hệ thống thực hiện phân cụm lại và tính toán centroid mới với tập các khuôn mặt mới và khuôn mặt đã được phát hiện. Sau đó, hệ thống tính độ tương đồng cosine\cite{cosine} giữa các centroid mới và các centroid đã lưu trước đó. Nếu độ tương đồng vượt quá ngưỡng định trước, hệ thống giữ nguyên centroid cũ và cập nhật thông tin nhóm cho các khuôn mặt mới. Cách tiếp cận này đảm bảo sự nhất quán trong việc phân loại khuôn mặt theo thời gian và giúp các nhóm khuôn mặt được cập nhật liên tục khi có thêm dữ liệu mới. 
 \end{enumerate}
 
 Với cách tiếp cận này, Smart Gallery có thể tự động nhận diện và tổ chức các khuôn mặt xuất hiện trong thư viện ảnh của người dùng, cho phép người dùng dễ dàng xem, tìm kiếm và phân loại ảnh theo các cá nhân xuất hiện trong đó. Người dùng cũng có thể đặt tên cho các nhóm khuôn mặt, giúp cá nhân hóa trải nghiệm và tăng cường khả năng tìm kiếm bằng tên người.

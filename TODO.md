@@ -1,4 +1,6 @@
 ## TODO
+- [ ] doi cac hinh background mau den ->  mau trang (vi khi in ra khong doc duoc)
+------------------------------------------------
 - [ ] them so thu tu trong bang flow hanh dong 4.1 -> kien truc he thong
 
 ## DONE 

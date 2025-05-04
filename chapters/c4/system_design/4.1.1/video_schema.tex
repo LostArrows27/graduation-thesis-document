@@ -3,11 +3,8 @@
 Một trong những tính năng nổi bật của hệ thống Smart Gallery là khả năng tạo video slideshow tự động từ bộ sưu tập ảnh. Để thực hiện điều này, hệ thống cần xây dựng một kịch bản video có cấu trúc hợp lý, đảm bảo nội dung mạch lạc và hấp dẫn. Kịch bản video được chia thành bốn phần chính:
 
 \begin{enumerate}
-    \item \textbf{Intro:} Phần mở đầu của video bao gồm:
-    \begin{itemize}
-        \item[-] Slide tiêu đề: Hiển thị tiêu đề của video do người dùng đặt, thường được trình bày với hiệu ứng chuyển động và phông chữ đặc biệt.
-        \item[-] Slide tổng quát: Giới thiệu tổng quan về nội dung video, sử dụng các hình ảnh đại diện được chọn lọc từ tập ảnh input của người dùng.
-    \end{itemize}
+    \item \textbf{Intro:}\newline
+    Phần mở đầu của video bao gồm 1 slide tiêu đề và 1 slide tổng quát. Slide tiêu đề sẽ hiển thị tên video do người dùng đặt, trong khi slide tổng quát sẽ giới thiệu nội dung chính của video bằng các hình ảnh đại diện được chọn lọc từ bộ ảnh input của người dùng.
     
     \begin{figure}[H]
         \centering
@@ -24,59 +21,52 @@ Một trong những tính năng nổi bật của hệ thống Smart Gallery là
         \label{fig:video-intro-design}
     \end{figure}
     
-    \item \textbf{Content:} Phần nội dung chính của video:
-    Phần nội dung chính của video được tổ chức thành các chương (chapters), được phân chia dựa trên nhãn location và event của ảnh. Mỗi chương được cấu trúc như sau:
-    \begin{itemize}
-        \item[-] Slide tiêu đề chương: Hiển thị tên của chương tương ứng với nhãn location hoặc event. 
-        \item[-] Slide trình chiếu ảnh: Hiển thị các ảnh thuộc cùng một nhóm nhãn, kèm theo hiệu ứng chuyển cảnh.
-    \end{itemize}
+    \item \textbf{Content:}\newline
+    Phần nội dung chính của video được tổ chức thành các chương (chapters), được phân chia dựa trên nhãn location và event của ảnh. Mỗi chương được cấu trúc bao gồm 1 slide tiêu đề và nhiều slide trình chiếu ảnh. Các slide trình chiếu ảnh được nhóm theo nhãn activity của ảnh. Cụ thể về cách phân chia các chương và slide sẽ được trình bày trong phần sau.
     
-    Tiêu đề và caption của các khung hình được tạo tự động bằng mô hình Gemini thông qua prompt sau:
+    Tiêu đề và caption của các khung hình được tạo tự động bằng mô hình Gemini thông qua prompt được trình bày trong hình \ref{fig:gemini-prompt} sau với input là các nhãn của ảnh trong chương đó:
     
     \begin{figure}[H]
         \centering  
-        \includegraphics[width=0.8\textwidth]{figures/c4/4_1/prompt.png}
+        \includegraphics[width=0.82\textwidth]{figures/c4/4_1/prompt.png}
         \caption{Prompt Gemini để tạo caption cho video slideshow.}
         \label{fig:gemini-prompt}
     \end{figure}
     
+    \newpage
     Ngoài ra, với mỗi chương, hệ thống đã chuẩn bị sẵn các phong cách trình bày sau cho slide ảnh:
-    
-    \begin{itemize}
-        \item[-] 2 Style tiêu đề chương được hệ thống chuẩn bị và chọn sẵn cho người dùng.:
-        \begin{figure}[H]
-            \centering
-            \begin{subfigure}{0.48\textwidth}
-                \includegraphics[width=1\linewidth]{figures/c4/4_1/title_1.jpg} 
-                \caption{Style tiêu đề 1.}
-            \end{subfigure}
-            \hfill
-            \begin{subfigure}{0.48\textwidth}
-                \includegraphics[width=1\linewidth]{figures/c4/4_1/title_2.jpg} 
-                \caption{Style tiêu đề 2.}
-            \end{subfigure}
-            \caption{Các style tiêu đề chương.}
-            \label{fig:chapter-title-styles}
-        \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        % First row - Title styles
+        \begin{subfigure}{0.48\textwidth}
+            \includegraphics[width=1\linewidth]{figures/c4/4_1/title_1.jpg} 
+            \caption{Style tiêu đề 1.}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.48\textwidth}
+            \includegraphics[width=1\linewidth]{figures/c4/4_1/title_2.jpg} 
+            \caption{Style tiêu đề 2.}
+        \end{subfigure}
         
-        \item[-] Các style trình chiếu ảnh mà hệ thống cung cấp cho người dùng:
-        \begin{figure}[H]
-            \centering
-            \begin{subfigure}{0.48\textwidth}
-                \includegraphics[width=1\linewidth]{figures/c4/4_1/slide_1.jpg} 
-                \caption{Style slide ảnh 1.}
-            \end{subfigure}
-            \hfill
-            \begin{subfigure}{0.48\textwidth}
-                \includegraphics[width=1\linewidth]{figures/c4/4_1/slide_2.jpg} 
-                \caption{Style slide ảnh 2.}
-            \end{subfigure}
-            \caption{Thiết kế các style slide ảnh.}
-            \label{fig:slider-styles}
-        \end{figure}
-    \end{itemize}
+        \vspace{0.5cm}
+        % Second row - Slide styles
+        \begin{subfigure}{0.48\textwidth}
+            \includegraphics[width=1\linewidth]{figures/c4/4_1/slide_1.jpg} 
+            \caption{Style slide ảnh 1.}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.48\textwidth}
+            \includegraphics[width=1\linewidth]{figures/c4/4_1/slide_2.jpg} 
+            \caption{Style slide ảnh 2.}
+        \end{subfigure}
+        
+        \caption{Các style thiết kế cho tiêu đề chương và slide ảnh.}
+        \label{fig:video-content-styles}
+    \end{figure}
     
-    \item \textbf{Special Part:} Phần đặc biệt của video tập trung vào việc điểm lại các thành viên tham gia chuyến đi:
+    \item \textbf{Special Part:}\newline
+    Phần đặc biệt của video tập trung vào việc điểm lại các thành viên tham gia chuyến đi:
     \begin{itemize}
         \item[-] Chỉ xuất hiện khi bộ sưu tập có ít nhất một khuôn mặt được nhận diện.
         \item[-] Hiển thị tổng số người đã tham gia trong chuyến đi.
@@ -98,7 +88,8 @@ Một trong những tính năng nổi bật của hệ thống Smart Gallery là
         \label{fig:video-special-design}
     \end{figure}
     
-    \item \textbf{Outro:} Phần kết thúc của video: Phần này sẽ tóm tắt lại chuyến đi bằng các ảnh tiêu biểu được chọn lọc và các caption được chọn tự động bởi hệ thống.
+    \item \textbf{Outro:}\newline
+    Phần kết thúc của video sẽ tóm tắt lại chuyến đi bằng các ảnh tiêu biểu được chọn lọc và các caption được chọn tự động bởi hệ thống.
     
     \begin{figure}[H]
         \centering  
@@ -109,7 +100,7 @@ Một trong những tính năng nổi bật của hệ thống Smart Gallery là
 \end{enumerate}
 
 \paragraph{- Thuật toán xây dựng kịch bản (Content):}
-Phần nội dung chính của video được xây dựng dựa trên một thuật toán phân nhóm và tổ chức ảnh thành các chương logic. Thuật toán này chia tập ảnh input của người dùng thành các nhóm dựa trên nhãn location và event của ảnh. Mỗi nhóm sẽ được tổ chức thành một chương riêng biệt trong video. Sau đây là cấu trúc JSON của label 1 ảnh:
+Phần nội dung chính của video được xây dựng dựa trên thuật toán phân nhóm và tổ chức ảnh thành các chương dựa. Thuật toán này chia tập ảnh input của người dùng thành các nhóm dựa trên nhãn location và event của ảnh. Mỗi nhóm sẽ được tổ chức thành một chương riêng biệt trong video. Sau đây là cấu trúc JSON của label 1 ảnh mẫu với các nhãn location, action và event sau khi được phân loại bởi mô hình Open Clip:
 
 \lstset{language=json}
 \begin{lstlisting}[
@@ -133,21 +124,23 @@ Phần nội dung chính của video được xây dựng dựa trên một thu�
 }
 \end{lstlisting}
 
-Quy trình tạo kịch bản phần Content (nội dung chính) của video bao gồm năm bước chính:
+Quy trình tạo kịch bản phần Content (nội dung chính) của video bao các bước chính sau:
 
 \begin{itemize}
-    \item \textbf{Bước 1 - Labeling}: Phát hiện và gán nhãn cho những ảnh chưa có label.
+    \item \textbf{Bước 1 - Labeling}: Phát hiện và gán nhãn cho những ảnh chưa có label. Khi đó, hệ thống sẽ gửi yêu cầu phân loại ảnh đến server labeling ảnh. 
     
-    \item \textbf{Bước 2 - Nhóm ảnh theo nhãn}: Nhóm các ảnh theo nhãn label có độ tin cậy cao nhất của từng ảnh. Ví dụ: \{mountain: 2 ảnh\}, \{park: 3 ảnh\}.
+    \item \textbf{Bước 2 - Nhóm ảnh theo nhãn}: Nhóm các ảnh theo nhãn label địa điểm có độ tin cậy (\%) cao nhất của từng ảnh. Kết quả phân loại sẽ gồm các nhóm chứa các ảnh có nhãn location giống nhau
+    Ví dụ: \{mountain: 2 ảnh\}, \{park: 3 ảnh\}.
     
-    \item \textbf{Bước 3 - Nhóm theo tập nhãn "broader group"}: Các nhóm có số lượng ảnh < 3 sẽ được nhóm chung dựa theo tập nhãn rộng hơn. Tập nhãn "broader group" là tập hợp các nhãn location được phân loại vào các nhóm lớn hơn (như "nature" bao gồm "sea", "mountain", "forest", v.v.). Ví dụ: nếu nhóm "sea" có 2 ảnh và nhóm "mountain" có 2 ảnh, cả hai sẽ được gộp thành nhóm "nature" với 4 ảnh.
+    \item \textbf{Bước 3 - Nhóm theo tập nhãn "broader group"}: Các nhóm có số lượng ảnh < 3 sẽ được nhóm chung dựa theo tập nhãn rộng hơn. Tập nhãn "broader group" là tập hợp các nhãn location được phân loại vào các nhóm lớn hơn (như "nature" bao gồm "sea", "mountain", "forest", v.v.). Ví dụ kết quả phân loại bước 3: nếu nhóm "sea" có 2 ảnh và nhóm "mountain" có 2 ảnh, cả hai sẽ được gộp thành nhóm "nature" với 4 ảnh.
     
     \item \textbf{Bước 4 - Tối ưu hóa nhóm}: Kiểm tra lại các nhóm broader location có số lượng < 3 ảnh. Nếu phát hiện, hệ thống sẽ đưa nhóm này vào nhóm location thuộc broader location đó và có số lượng ảnh nhiều nhất. Ví dụ: nhóm "workspace" (gồm 2 ảnh) sẽ được gộp vào nhóm "classroom" (có 4 ảnh) nếu "classroom" thuộc nhóm broader "workspace" và có số lượng ảnh nhiều nhất trong các nhóm thuộc "workspace".
     
-    \item \textbf{Bước 5 - Xử lý ngoại lệ}: Duyệt lại lần cuối, những nhóm chỉ có 1 ảnh sẽ được gộp vào một chương chung có tên "Small Part" hoặc "Khoảnh khắc khác".
+    \item \textbf{Bước 5 - Xử lý ngoại lệ}: Duyệt lại lần cuối, những nhóm chỉ có 1 ảnh sẽ được gộp vào một nhóm chung và hiển thị dưới dạng 1 chương đặc biệt có tên "Small Part" hoặc "Khoảnh khắc khác".
     \item \textbf{Bước 6 - Tạo nội dung từng chương}: Trong các chương, với tập ảnh đã được nhóm và phân chia từ các bước trước, hệ thống sẽ tạo tiêu đề chương và chia các ảnh trong chương đó thành các slide ảnh. Mỗi slide ảnh được nhóm theo nhãn activity. 
     \item \textbf{Bước 7 - Tạo tiêu đề và caption}: Tiêu đề chương và caption được tạo tự động bằng mô hình Gemini thông qua prompt đã nêu ở trên. 
     \item \textbf{Bước 8 - Chọn phong cách trình bày}: Hệ thống sẽ chọn ngẫu nhiên một trong các phong cách trình bày đã được chuẩn bị sẵn cho tiêu đề chương và slide ảnh (nếu người dùng không chọn phong cách cụ thể nào).
+    \item \textbf{Bước 9 - Nhóm khuôn mặt}: Hệ thống sẽ lấy dữ liệu các nhóm khuôn mặt trong CSDL của người dùng và chọn ra 4 nhóm khuôn mặt có số lượng ảnh lớn nhất để hiển thị trong phần Special Part của video. Nếu không có khuôn mặt nào được nhận diện, phần này sẽ không được hiển thị.
 \end{itemize}
 
 \paragraph{- Lưu trữ kịch bản video:}

@@ -1,7 +1,10 @@
 ## TODO
-- [ ] doi cac hinh background mau den ->  mau trang (vi khi in ra khong doc duoc)
-------------------------------------------------
-- [ ] them so thu tu trong bang flow hanh dong 4.1 -> kien truc he thong
+- [ ]  Đổi ảnh background đen → nền trắng font đen
+- [ ]  Indent mỗi đầu đoạn văn trừ đầu chương
+- [ ]  Hình database hiện nền trắng
+- [ ]  Đọc lại những chỗ có ngoặc đơn () / ngoặc kép “” / ngoặc đơn ‘’
+- [ ]  Viết lại kết luận + Mở đầu hay và dễ đọc hơn → đỡ giống AI
+- [ ]  Soát lại lỗi chính tả
 
 ## DONE 
 - [x] remove log in / sign up -> in 4.2 
@@ -19,7 +22,15 @@
 - [x] cat ngan bang dung tabularX -> 
 - [x] caption aenh -> co dau cham
 - [x] them controller cho cac use-case sequence diagram
+- [x]  Chú thích + giải thích kết quả testing
+    - mô tả hình là gì
+    - phân tích + đánh giá
+    - dùng độ phủ gì để đo
+    - ý nghĩa % độ phủ là gì
+- [x]  Chụp màn hình các folder kiểm thử PostMan
+- [x]  Viết 1-2 testcase fail và cách fix như nào
 
 ## SKIP
 - [ ] viet failed test trong E2E testing -> bao cao
 - [ ] max 70 trang
+- [ ] them so thu tu trong bang flow hanh dong 4.1 -> kien truc he thong 

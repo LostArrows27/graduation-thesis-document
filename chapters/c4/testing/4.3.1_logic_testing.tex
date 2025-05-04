@@ -19,7 +19,7 @@ Môi trường kiểm thử cho các xử lý logic gồm có:
 
 \textbf{Kết quả kiểm thử}
 
-Độ phủ và kết quả kiểm thử xử lý logic như Hình \ref{fig:jest-testing} và Hình \ref{fig:pytest-testing}.
+Độ phủ nhánh cho các hàm xử lý logic của server labeling ảnh được miêu tả như Hình \ref{fig:jest-testing} và đạt 100\%, với phạm vi kiểm thử bao gồm các hàm xử lý chính như resize ảnh, phân nhóm khuôn mặt và các hàm xử lý của model AI. Đối với server tạo video, độ phủ nhánh được miêu tả như Hình \ref{fig:pytest-testing} và đạt 92.59\%, với phạm vi kiểm thử bao gồm các hàm xử lý chính như tạo kịch bản video và tạo kịch bản cho video. 
 
 \begin{figure}[H]
     \centering  
@@ -42,21 +42,31 @@ Môi trường kiểm thử cho các xử lý logic gồm có:
     \label{fig:pytest-testing}
 \end{figure}
 
+Đây là kết quả kiểm thử sau khi đã phát hiện và sửa lỗi cho các hàm xử lý logic của 2 server. Một số lỗi đã được phát hiện và sửa chữa trong quá trình kiểm thử, chi tiết các lỗi và cách sửa chữa được mô tả trong các commit trên 2 repository của server: \href{https://github.com/LostArrows27/graduation-thesis-nodejs-backend/commits/master/}{NodeJS Video Server}\footnote{\url{https://github.com/LostArrows27/graduation-thesis-nodejs-backend/commits/master/}} và \href{https://github.com/LostArrows27/graduation-thesis-python-backend/commits/master/}{Python Labeling Server}\footnote{\url{https://github.com/LostArrows27/graduation-thesis-nodejs-backend/commits/master/}}.
+
 
 \subsubsection{Kiểm thử API}
 
-Chi tiết các ca kiểm thử (miêu tả, input và output) được mô tả tại folder "[test]" tại đây\footnote{\url{http://bit.ly/42y7KyF}}. 
-Và Hình \ref{fig:postman} dưới đây mô tả các API endpoint được kiểm thử với Postman~\cite{postman}.  
+Chi tiết các ca kiểm thử (miêu tả, input và output) được mô tả trong folder ``[test]`` tại đường dẫn sau đây\footnote{\url{http://bit.ly/42y7KyF}}. Hình \ref{fig:postman} dưới đây mô tả các API endpoint được kiểm thử với Postman~\cite{postman}.  
 
 \begin{figure}[H]
-    \centering  
-    \includegraphics[width=0.7\textwidth]{figures/c4/4-3/api.png}
+    \centering
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[height=12cm]{figures/c4/4-3/api_node.png} 
+        \caption{API server NodeJS}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[height=12cm]{figures/c4/4-3/api_python.png} 
+        \caption{API server Python}
+    \end{subfigure}
     \caption{Các API endpoint được kiểm thử với Postman.}
     \label{fig:postman}
 \end{figure}
 
-
-Bảng 4.1 dưới đây mô tả một số kịch bảng kiểm thử API chính cho ứng dụng. 
+Bảng 4.1 dưới đây mô tả một số kịch bảng kiểm thử API chính cho ứng dụng. Đây là các kịch bản kiểm thử và kết quả cho các API chính của ứng dụng sau khi đã sửa lỗi và hoàn thiện. 
 
 \small
 \begin{xltabular}{\textwidth}{|c|p{2cm}|X|X|c|}
@@ -110,4 +120,6 @@ Bảng 4.1 dưới đây mô tả một số kịch bảng kiểm thử API chí
      & & Gán nhãn nhiều ảnh & Hệ thống trả về mảng nhãn ảnh và mã 200 & Đạt \\
     \hline
 \end{xltabular}
+
+Trong quá trình kiểm thử các API, một số lỗi đã được phát hiện và khắc phục, đặc biệt là lỗi tại API tạo video khi xử lý trường hợp tạo video với kịch bản không chứa khuôn mặt nào. Lỗi này gây ra việc render video bị thất bại khi không tìm thấy khuôn mặt để hiển thị trong phần cuối video. Vấn đề đã được khắc phục thông qua commit \href{https://github.com/LostArrows27/graduation-thesis-nodejs-backend/commit/0efb26aae61792882dd0937db3be0dfbe6ef75b7}{sửa lỗi render video không chứa khuôn mặt}\footnote{\url{https://github.com/LostArrows27/graduation-thesis-nodejs-backend/commit/0efb26aae61792882dd0937db3be0dfbe6ef75b7}}, trong đó hệ thống được bổ sung logic kiểm tra và xử lý trường hợp đặc biệt này. Sau khi sửa lỗi, API hoạt động ổn định với tất cả các trường hợp kiểm thử.
 

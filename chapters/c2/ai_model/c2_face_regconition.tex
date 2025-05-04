@@ -11,7 +11,7 @@ Quy trình nhận diện khuôn mặt trong thư viện Face Recognition thườ
     
     \item \textbf{Phát hiện điểm đặc trưng (Facial Landmark Detection)}: Sau khi phát hiện khuôn mặt, thuật toán xác định vị trí của 68 điểm đặc trưng trên khuôn mặt (như mắt, mũi, miệng, etc.). Các điểm này giúp căn chỉnh khuôn mặt và chuẩn bị cho quá trình mã hóa khuôn mặt.
     
-    \item \textbf{Mã hóa khuôn mặt (Face Encoding)}: Giai đoạn cuối cùng sử dụng một mạng nơ-ron sâu đã được huấn luyện trước để chuyển đổi khuôn mặt đã được căn chỉnh thành một vector đặc trưng 128 chiều. Các vector này còn được gọi là "face embedding" hoặc "face encoding", và chúng đại diện cho các đặc điểm của khuôn mặt trong không gian đa chiều.
+    \item \textbf{Mã hóa khuôn mặt (Face Encoding)}: Giai đoạn cuối cùng sử dụng một mạng nơ-ron sâu đã được huấn luyện trước để chuyển đổi khuôn mặt đã được căn chỉnh thành một vector đặc trưng 128 chiều. Các vector này còn được gọi là ``face embedding'' hoặc ``face encoding'', và chúng đại diện cho các đặc điểm của khuôn mặt trong không gian đa chiều.
 \end{itemize}
 
 Thư viện Face Recognition sử dụng mô hình ResNet-34 được huấn luyện trên tập dữ liệu FaceNet để tạo ra các vector mã hóa khuôn mặt. Mô hình này được huấn luyện bằng phương pháp học triplet, trong đó mô hình học cách tạo ra các embedding sao cho khoảng cách Euclidean giữa các embedding của cùng một người nhỏ, trong khi khoảng cách giữa các embedding của những người khác nhau lớn.

@@ -1,9 +1,5 @@
 ## TODO
-- [ ]  Đổi ảnh background đen → nền trắng font đen
-- [ ]  Indent mỗi đầu đoạn văn trừ đầu chương
 - [ ]  Hình database hiện nền trắng
-- [ ]  Đọc lại những chỗ có ngoặc đơn () / ngoặc kép “” / ngoặc đơn ‘’
-- [ ]  Viết lại kết luận + Mở đầu hay và dễ đọc hơn → đỡ giống AI
 - [ ]  Soát lại lỗi chính tả
 
 ## DONE 
@@ -29,6 +25,10 @@
     - ý nghĩa % độ phủ là gì
 - [x]  Chụp màn hình các folder kiểm thử PostMan
 - [x]  Viết 1-2 testcase fail và cách fix như nào
+- [x]  Đổi ảnh background đen → nền trắng font đen
+- [x]  Indent mỗi đầu đoạn văn trừ đầu chương
+- [x]  Đọc lại những chỗ có ngoặc đơn () / ngoặc kép “” / ngoặc đơn ‘’
+- [x]  Viết lại kết luận + Mở đầu hay và dễ đọc hơn → đỡ giống AI
 
 ## SKIP
 - [ ] viet failed test trong E2E testing -> bao cao

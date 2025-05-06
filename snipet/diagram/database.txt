@@ -1,0 +1,151 @@
+// Database schema in DBML format
+
+Table user {
+  id uuid [pk, default: `gen_random_uuid()`]
+  created_at timestamp [not null, default: `now()`]
+  updated_at timestamp [not null, default: `now()`]
+  email varchar [unique, not null]
+  name varchar [not null]
+  dob timestamp
+  avatar_url text
+  survey_answers text[]
+  is_done_label_form boolean [not null, default: false]
+
+  Note: 'User account information'
+}
+
+Table album {
+  id uuid [pk, default: `gen_random_uuid()`]
+  created_at timestamp [not null, default: `now()`]
+  updated_at timestamp [not null, default: `now()`]
+  owner_id uuid [not null, ref: > user.id]
+  name varchar [not null]
+
+  Note: 'Photo albums created by users'
+}
+
+Table image {
+  id uuid [pk, default: `gen_random_uuid()`]
+  created_at timestamp [not null, default: `now()`]
+  updated_at timestamp [not null, default: `now()`]
+  uploader_id uuid [ref: > user.id]
+  image_bucket_id text [not null]
+  image_name text [not null]
+  labels json
+  image_features "extensions.vector"
+  is_face_detection boolean [not null, default: false]
+  caption text
+  is_favorite boolean [not null, default: false]
+  longitude float
+  latitude float
+  location_meta_data jsonb
+
+  Note: 'Images uploaded by users'
+}
+
+Table album_image {
+  id uuid [pk, default: `gen_random_uuid()`]
+  created_at timestamp [not null, default: `now()`]
+  album_id uuid [not null, ref: > album.id]
+  image_id uuid [not null, ref: > image.id]
+
+  Note: 'Junction table connecting albums and images'
+}
+
+Table cluster_mapping {
+  id serial [pk]
+  updated_at timestamp [not null, default: `now()`]
+  name text [not null]
+  centroid "extensions.vector" [not null]
+
+  Note: 'Cluster information for facial recognition'
+}
+
+Table person {
+  id serial [pk]
+  created_at timestamp [not null, default: `now()`]
+  embedding "extensions.vector" [not null]
+  coordinate jsonb [not null]
+  image_id uuid [not null, ref: > image.id]
+  user_id uuid [not null, ref: > user.id]
+  cluster_id integer [ref: > cluster_mapping.id]
+
+  Note: 'Person detection information from images'
+}
+
+Table search_history {
+  id uuid [pk, default: `gen_random_uuid()`]
+  created_at timestamp [not null, default: `now()`]
+  content text [not null]
+  user_id uuid [not null, ref: > user.id]
+  text_features "extensions.vector"
+
+  Note: 'User search history'
+}
+
+Enum video_render_status {
+  pending
+  processing
+  completed
+  failed
+}
+
+Table video_render {
+  id uuid [pk, default: `gen_random_uuid()`]
+  created_at timestamp [not null, default: `now()`]
+  updated_at timestamp [not null, default: `now()`]
+  request_user_id uuid [not null, ref: > user.id]
+  status video_render_status [not null, default: 'pending']
+  progress real [not null, default: 0.0]
+  schema jsonb
+  thumbnail_url text
+
+  Note: 'Video rendering information'
+}
+
+Table video_chunk {
+  id uuid [pk, default: `gen_random_uuid()`]
+  video_id uuid [not null, ref: > video_render.id]
+  chunk_name text [not null]
+  chunk_bucket_id text [not null]
+
+  Note: 'Video chunks for rendered videos'
+}
+
+Table video_image {
+  video_id uuid [not null, ref: > video_render.id]
+  image_id uuid [not null, ref: > image.id]
+
+  indexes {
+    (video_id, image_id) [pk]
+  }
+
+  Note: 'Junction table connecting videos and images'
+}
+
+// External table reference for storage.objects
+Table storage.objects {
+  bucket_id text
+  name text
+  
+  indexes {
+    (bucket_id, name) [pk]
+  }
+
+  Note: 'External storage objects table'
+}
+
+// Additional references for storage objects
+Ref: image.(image_bucket_id, image_name) > storage.objects.(bucket_id, name)
+Ref: video_chunk.(chunk_bucket_id, chunk_name) > storage.objects.(bucket_id, name)
+
+// External auth reference
+Table auth.users {
+  id uuid [pk]
+  
+  Note: 'External auth users table'
+}
+
+Ref: user.id > auth.users.id
+
+Ref: "public"."album"."created_at" < "public"."album"."id"

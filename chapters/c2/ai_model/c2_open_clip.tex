@@ -1,52 +1,52 @@
 \subsection{OpenCLIP}
 \label{sec:open_clip}
 
-\subsubsection{Cơ sở lý thuyết}
+% \subsubsection{Cơ sở lý thuyết}
 
 OpenCLIP~\cite{openclip} là một cài đặt mã nguồn mở của mô hình CLIP (Contrastive Language-Image Pre-training) được phát triển ban đầu bởi OpenAI. Mô hình này được thiết kế để tạo ra sự kết nối giữa hình ảnh và văn bản thông qua phương pháp học tương phản (contrastive learning).
 
-Kiến trúc của OpenCLIP bao gồm hai thành phần chính:
-\begin{itemize}
-    \item \textbf{Bộ mã hóa hình ảnh (Image Encoder)}: Thường là một mạng nơ-ron tích chập (CNN) hoặc mô hình Vision Transformer (ViT) được sử dụng để chuyển đổi hình ảnh thành một vector đặc trưng trong không gian nhúng chung.
+% Kiến trúc của OpenCLIP bao gồm hai thành phần chính:
+% \begin{itemize}
+%     \item \textbf{Bộ mã hóa hình ảnh (Image Encoder)}: Thường là một mạng nơ-ron tích chập (CNN) hoặc mô hình Vision Transformer (ViT) được sử dụng để chuyển đổi hình ảnh thành một vector đặc trưng trong không gian nhúng chung.
     
-    \item \textbf{Bộ mã hóa văn bản (Text Encoder)}: Sử dụng một mô hình ngôn ngữ, thường là Transformer, để chuyển đổi văn bản thành vector đặc trưng trong cùng không gian nhúng với hình ảnh.
-\end{itemize}
+%     \item \textbf{Bộ mã hóa văn bản (Text Encoder)}: Sử dụng một mô hình ngôn ngữ, thường là Transformer, để chuyển đổi văn bản thành vector đặc trưng trong cùng không gian nhúng với hình ảnh.
+% \end{itemize}
 
-Quá trình huấn luyện CLIP dựa trên nguyên lý học tương phản, trong đó mô hình được huấn luyện để tối đa hóa sự tương đồng giữa các cặp hình ảnh-văn bản phù hợp và tối thiểu hóa sự tương đồng giữa các cặp không phù hợp. Điều này được thực hiện thông qua hàm mất mát tương phản InfoNCE (Noise Contrastive Estimation).
+% Quá trình huấn luyện CLIP dựa trên nguyên lý học tương phản, trong đó mô hình được huấn luyện để tối đa hóa sự tương đồng giữa các cặp hình ảnh-văn bản phù hợp và tối thiểu hóa sự tương đồng giữa các cặp không phù hợp. Điều này được thực hiện thông qua hàm mất mát tương phản InfoNCE (Noise Contrastive Estimation).
 
-Phương pháp này cho phép OpenCLIP học được các biểu diễn đa phương tiện mạnh mẽ mà không cần dữ liệu được gán nhãn thủ công. Thay vào đó, nó học từ một khối lượng lớn các cặp hình ảnh-văn bản thu thập từ internet, cho phép mô hình hiểu được các khái niệm trực quan và ngôn ngữ một cách toàn diện.
+% Phương pháp này cho phép OpenCLIP học được các biểu diễn đa phương tiện mạnh mẽ mà không cần dữ liệu được gán nhãn thủ công. Thay vào đó, nó học từ một khối lượng lớn các cặp hình ảnh-văn bản thu thập từ internet, cho phép mô hình hiểu được các khái niệm trực quan và ngôn ngữ một cách toàn diện.
 
 Điểm đặc biệt của OpenCLIP cũng như Clip là việc học zero-shot, cho phép nó nhận dạng các đối tượng và khái niệm mà nó chưa từng thấy trong quá trình huấn luyện. Điều này được thực hiện bằng cách so sánh hình ảnh đầu vào với các mô tả văn bản khác nhau và chọn mô tả có độ tương đồng cao nhất.
 
 OpenCLIP mở rộng mô hình gốc của OpenAI bằng cách cung cấp các cài đặt mã nguồn mở, hỗ trợ nhiều kiến trúc mô hình khác nhau, và cho phép huấn luyện trên các tập dữ liệu tùy chỉnh, giúp cộng đồng nghiên cứu tiếp cận và cải tiến mô hình này.
 
-\subsubsection{Ứng dụng}
+% \subsubsection{Ứng dụng}
 
-Trong ứng dụng Smart Gallery, OpenCLIP được triển khai để thực hiện hai chức năng chính: gán nhãn tự động cho hình ảnh và tìm kiếm hình ảnh dựa trên văn bản. Cụ thể hơn, Smart Gallery sử dụng một mô hình OpenCLIP được huấn luyện sẵn, kết hợp với các tập nhãn được định nghĩa trước để phân loại hình ảnh theo các nhãn có độ tương đồng cao nhất.
+% Trong ứng dụng Smart Gallery, OpenCLIP được triển khai để thực hiện hai chức năng chính: gán nhãn tự động cho hình ảnh và tìm kiếm hình ảnh dựa trên văn bản. Cụ thể hơn, Smart Gallery sử dụng một mô hình OpenCLIP được huấn luyện sẵn, kết hợp với các tập nhãn được định nghĩa trước để phân loại hình ảnh theo các nhãn có độ tương đồng cao nhất.
 
-\textbf{Gán nhãn tự động cho hình ảnh:} Quá trình gán nhãn tự động được thực hiện theo các bước sau:
+% \textbf{Gán nhãn tự động cho hình ảnh:} Quá trình gán nhãn tự động được thực hiện theo các bước sau:
 
-\begin{enumerate}
-    \item \textbf{Chuẩn bị tập nhãn:} Smart Gallery sử dụng ba tập nhãn chính: locations (địa điểm), activities (hoạt động), events (sự kiện), và một tập nhãn đặc biệt để phân loại ảnh có liên quan/không liên quan (relate/unrelate). Các tập nhãn này được mã hóa (encode) bằng bộ mã hóa văn bản của OpenCLIP và được lưu dưới dạng file .pt để sử dụng lại, tránh việc phải thực hiện mã hóa lặp lại.
+% \begin{enumerate}
+%     \item \textbf{Chuẩn bị tập nhãn:} Smart Gallery sử dụng ba tập nhãn chính: locations (địa điểm), activities (hoạt động), events (sự kiện), và một tập nhãn đặc biệt để phân loại ảnh có liên quan/không liên quan (relate/unrelate). Các tập nhãn này được mã hóa (encode) bằng bộ mã hóa văn bản của OpenCLIP và được lưu dưới dạng file .pt để sử dụng lại, tránh việc phải thực hiện mã hóa lặp lại.
     
-    \item \textbf{Lọc ảnh không liên quan:} Khi một ảnh được tải lên, bước đầu tiên là sử dụng tập nhãn đặc biệt để loại bỏ các ảnh không liên quan như giấy tờ, hình ảnh hoạt hình hoặc ảnh chụp màn hình. Điều này giúp giảm thiểu việc gán nhãn không chính xác và tập trung vào các bức ảnh có giá trị cho người dùng.
+%     \item \textbf{Lọc ảnh không liên quan:} Khi một ảnh được tải lên, bước đầu tiên là sử dụng tập nhãn đặc biệt để loại bỏ các ảnh không liên quan như giấy tờ, hình ảnh hoạt hình hoặc ảnh chụp màn hình. Điều này giúp giảm thiểu việc gán nhãn không chính xác và tập trung vào các bức ảnh có giá trị cho người dùng.
     
-    \item \textbf{Tính toán độ tương đồng và gán nhãn:} Đối với các ảnh đã được lọc, hệ thống sẽ mã hóa ảnh thành vector đặc trưng (image features) và tính toán độ tương đồng với các vector đặc trưng của từng nhãn trong các tập nhãn. Quá trình này bao gồm việc chuẩn hóa các vector đặc trưng và sử dụng phép nhân ma trận để tính toán xác suất tương đồng. Sau đó, hệ thống chọn ra top 2 nhãn có độ tương đồng cao nhất cho mỗi tập nhãn locations, activities, và events.
+%     \item \textbf{Tính toán độ tương đồng và gán nhãn:} Đối với các ảnh đã được lọc, hệ thống sẽ mã hóa ảnh thành vector đặc trưng (image features) và tính toán độ tương đồng với các vector đặc trưng của từng nhãn trong các tập nhãn. Quá trình này bao gồm việc chuẩn hóa các vector đặc trưng và sử dụng phép nhân ma trận để tính toán xác suất tương đồng. Sau đó, hệ thống chọn ra top 2 nhãn có độ tương đồng cao nhất cho mỗi tập nhãn locations, activities, và events.
     
-    \item \textbf{Lưu trữ kết quả:} Sau khi hoàn tất việc gán nhãn, cả vector đặc trưng của ảnh (image features) và các nhãn được gán sẽ được lưu vào cơ sở dữ liệu. Việc lưu trữ vector đặc trưng giúp tối ưu hóa quá trình tìm kiếm sau này.
-\end{enumerate}
+%     \item \textbf{Lưu trữ kết quả:} Sau khi hoàn tất việc gán nhãn, cả vector đặc trưng của ảnh (image features) và các nhãn được gán sẽ được lưu vào cơ sở dữ liệu. Việc lưu trữ vector đặc trưng giúp tối ưu hóa quá trình tìm kiếm sau này.
+% \end{enumerate}
 
-\textbf{Tìm kiếm hình ảnh dựa trên văn bản:} Khi người dùng nhập một câu truy vấn tìm kiếm, hệ thống sẽ thực hiện các bước sau:
+% \textbf{Tìm kiếm hình ảnh dựa trên văn bản:} Khi người dùng nhập một câu truy vấn tìm kiếm, hệ thống sẽ thực hiện các bước sau:
 
-\begin{enumerate}
-    \item Mã hóa câu truy vấn thành vector đặc trưng văn bản (text features) sử dụng bộ mã hóa văn bản của OpenCLIP.
+% \begin{enumerate}
+%     \item Mã hóa câu truy vấn thành vector đặc trưng văn bản (text features) sử dụng bộ mã hóa văn bản của OpenCLIP.
     
-    \item Tính toán độ tương đồng cosine giữa vector đặc trưng văn bản và các vector đặc trưng hình ảnh đã được lưu trữ trong cơ sở dữ liệu.
+%     \item Tính toán độ tương đồng cosine giữa vector đặc trưng văn bản và các vector đặc trưng hình ảnh đã được lưu trữ trong cơ sở dữ liệu.
     
-    \item Trả về các kết quả có độ tương đồng vượt qua một ngưỡng nhất định, đảm bảo kết quả tìm kiếm có độ chính xác cao.
-\end{enumerate}
+%     \item Trả về các kết quả có độ tương đồng vượt qua một ngưỡng nhất định, đảm bảo kết quả tìm kiếm có độ chính xác cao.
+% \end{enumerate}
 
-Cách tiếp cận này cho phép Smart Gallery cung cấp khả năng tìm kiếm hình ảnh thông minh, vượt ra ngoài việc chỉ tìm kiếm dựa trên metadata. Người dùng có thể tìm kiếm hình ảnh bằng các mô tả tự nhiên như ``bữa tiệc sinh nhật'', ``chuyến đi biển'' hoặc ``buổi picnic ở công viên'', và hệ thống sẽ trả về các hình ảnh phù hợp với mô tả đó, ngay cả khi các hình ảnh không chứa thông tin metadata tương ứng.
+% Cách tiếp cận này cho phép Smart Gallery cung cấp khả năng tìm kiếm hình ảnh thông minh, vượt ra ngoài việc chỉ tìm kiếm dựa trên metadata. Người dùng có thể tìm kiếm hình ảnh bằng các mô tả tự nhiên như ``bữa tiệc sinh nhật'', ``chuyến đi biển'' hoặc ``buổi picnic ở công viên'', và hệ thống sẽ trả về các hình ảnh phù hợp với mô tả đó, ngay cả khi các hình ảnh không chứa thông tin metadata tương ứng.
 
 
 

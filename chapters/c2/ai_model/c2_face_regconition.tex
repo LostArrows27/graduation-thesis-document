@@ -1,49 +1,49 @@
 \subsection{Face Recognition}
 
-\subsubsection{Cơ sở lý thuyết}
+% \subsubsection{Cơ sở lý thuyết}
 
 Face Recognition~\cite{facerecognition} là một thư viện Python mã nguồn mở được phát triển bởi Adam Geitgey, được xây dựng trên nền tảng của thư viện dlib~\cite{dlib}. Thư viện này cung cấp một giao diện đơn giản cho các thuật toán nhận diện khuôn mặt tiên tiến, cho phép phát hiện, căn chỉnh và nhận diện khuôn mặt trong hình ảnh.
 
-Quy trình nhận diện khuôn mặt trong thư viện Face Recognition thường bao gồm ba giai đoạn chính:
+% Quy trình nhận diện khuôn mặt trong thư viện Face Recognition thường bao gồm ba giai đoạn chính:
 
-\begin{itemize}
-    \item \textbf{Phát hiện khuôn mặt (Face Detection)}: Giai đoạn này sử dụng các thuật toán như Histogram of Oriented Gradients (HOG) hoặc mạng nơ-ron tích chập (CNN) để xác định vị trí của khuôn mặt trong hình ảnh. Phương pháp HOG nhanh nhưng độ chính xác thấp hơn, trong khi phương pháp CNN chính xác hơn nhưng yêu cầu nhiều tài nguyên tính toán hơn.
+% \begin{itemize}
+%     \item \textbf{Phát hiện khuôn mặt (Face Detection)}: Giai đoạn này sử dụng các thuật toán như Histogram of Oriented Gradients (HOG) hoặc mạng nơ-ron tích chập (CNN) để xác định vị trí của khuôn mặt trong hình ảnh. Phương pháp HOG nhanh nhưng độ chính xác thấp hơn, trong khi phương pháp CNN chính xác hơn nhưng yêu cầu nhiều tài nguyên tính toán hơn.
     
-    \item \textbf{Phát hiện điểm đặc trưng (Facial Landmark Detection)}: Sau khi phát hiện khuôn mặt, thuật toán xác định vị trí của 68 điểm đặc trưng trên khuôn mặt (như mắt, mũi, miệng, etc.). Các điểm này giúp căn chỉnh khuôn mặt và chuẩn bị cho quá trình mã hóa khuôn mặt.
+%     \item \textbf{Phát hiện điểm đặc trưng (Facial Landmark Detection)}: Sau khi phát hiện khuôn mặt, thuật toán xác định vị trí của 68 điểm đặc trưng trên khuôn mặt (như mắt, mũi, miệng, etc.). Các điểm này giúp căn chỉnh khuôn mặt và chuẩn bị cho quá trình mã hóa khuôn mặt.
     
-    \item \textbf{Mã hóa khuôn mặt (Face Encoding)}: Giai đoạn cuối cùng sử dụng một mạng nơ-ron sâu đã được huấn luyện trước để chuyển đổi khuôn mặt đã được căn chỉnh thành một vector đặc trưng 128 chiều. Các vector này còn được gọi là ``face embedding'' hoặc ``face encoding'', và chúng đại diện cho các đặc điểm của khuôn mặt trong không gian đa chiều.
-\end{itemize}
+%     \item \textbf{Mã hóa khuôn mặt (Face Encoding)}: Giai đoạn cuối cùng sử dụng một mạng nơ-ron sâu đã được huấn luyện trước để chuyển đổi khuôn mặt đã được căn chỉnh thành một vector đặc trưng 128 chiều. Các vector này còn được gọi là ``face embedding'' hoặc ``face encoding'', và chúng đại diện cho các đặc điểm của khuôn mặt trong không gian đa chiều.
+% \end{itemize}
 
-Thư viện Face Recognition sử dụng mô hình ResNet-34 được huấn luyện trên tập dữ liệu FaceNet để tạo ra các vector mã hóa khuôn mặt. Mô hình này được huấn luyện bằng phương pháp học triplet, trong đó mô hình học cách tạo ra các embedding sao cho khoảng cách Euclidean giữa các embedding của cùng một người nhỏ, trong khi khoảng cách giữa các embedding của những người khác nhau lớn.
+% Thư viện Face Recognition sử dụng mô hình ResNet-34 được huấn luyện trên tập dữ liệu FaceNet để tạo ra các vector mã hóa khuôn mặt. Mô hình này được huấn luyện bằng phương pháp học triplet, trong đó mô hình học cách tạo ra các embedding sao cho khoảng cách Euclidean giữa các embedding của cùng một người nhỏ, trong khi khoảng cách giữa các embedding của những người khác nhau lớn.
 
 Để so sánh xem hai khuôn mặt có thuộc về cùng một người hay không, thư viện tính toán khoảng cách Euclidean giữa hai vector mã hóa khuôn mặt. Nếu khoảng cách này nhỏ hơn một ngưỡng nhất định (thường là 0.6), hai khuôn mặt được coi là của cùng một người.
 
 Độ chính xác của thư viện Face Recognition đạt khoảng 99.38\% trên tập dữ liệu Labeled Faces in the Wild, tương đương với các hệ thống thương mại tiên tiến nhất.
 
-\subsubsection{Ứng dụng}
+% \subsubsection{Ứng dụng}
 
-Trong Smart Gallery, thư viện Face Recognition được ứng dụng để phát hiện và phân loại khuôn mặt xuất hiện trong thư viện ảnh của người dùng, qua hai chức năng chính:
+% Trong Smart Gallery, thư viện Face Recognition được ứng dụng để phát hiện và phân loại khuôn mặt xuất hiện trong thư viện ảnh của người dùng, qua hai chức năng chính:
 
-\textbf{Nhận diện khuôn mặt trong ảnh:} Quá trình nhận diện khuôn mặt được thực hiện theo các bước sau:
-\begin{enumerate}
-    \item \textbf{Tiền xử lý ảnh:} Với những ảnh có kích thước lớn, hệ thống thực hiện giảm kích thước để tối ưu hóa hiệu suất xử lý mà vẫn đảm bảo độ chính xác trong việc nhận diện.
+% \textbf{Nhận diện khuôn mặt trong ảnh:} Quá trình nhận diện khuôn mặt được thực hiện theo các bước sau:
+% \begin{enumerate}
+%     \item \textbf{Tiền xử lý ảnh:} Với những ảnh có kích thước lớn, hệ thống thực hiện giảm kích thước để tối ưu hóa hiệu suất xử lý mà vẫn đảm bảo độ chính xác trong việc nhận diện.
     
-    \item \textbf{Trích xuất đặc trưng khuôn mặt:} Sử dụng thư viện face\_recognition để phát hiện vị trí các khuôn mặt trong ảnh và tính toán vector đặc trưng (face\_embedding) cho mỗi khuôn mặt.
+%     \item \textbf{Trích xuất đặc trưng khuôn mặt:} Sử dụng thư viện face\_recognition để phát hiện vị trí các khuôn mặt trong ảnh và tính toán vector đặc trưng (face\_embedding) cho mỗi khuôn mặt.
     
-    \item \textbf{Lưu trữ thông tin:} Hệ thống lưu thông tin về vị trí (location) của khuôn mặt trong ảnh cùng với vector đặc trưng tương ứng vào cơ sở dữ liệu để sử dụng cho việc phân nhóm và nhận diện sau này.
-\end{enumerate}
+%     \item \textbf{Lưu trữ thông tin:} Hệ thống lưu thông tin về vị trí (location) của khuôn mặt trong ảnh cùng với vector đặc trưng tương ứng vào cơ sở dữ liệu để sử dụng cho việc phân nhóm và nhận diện sau này.
+% \end{enumerate}
 
-\textbf{Phân nhóm khuôn mặt tương tự: } Để người dùng có thể dễ dàng quản lý và phân loại khuôn mặt xuất hiện trong thư viện ảnh, Smart Gallery thực hiện phân nhóm các khuôn mặt tương tự như sau:
+% \textbf{Phân nhóm khuôn mặt tương tự: } Để người dùng có thể dễ dàng quản lý và phân loại khuôn mặt xuất hiện trong thư viện ảnh, Smart Gallery thực hiện phân nhóm các khuôn mặt tương tự như sau:
 
-\begin{enumerate}
-    \item \textbf{Áp dụng thuật toán phân cụm:} Hệ thống sử dụng thuật toán DBSCAN (Density-Based Spatial Clustering of Applications with Noise)~\cite{dbscan} để phân cụm các vector đặc trưng khuôn mặt. DBSCAN được lựa chọn vì khả năng phát hiện các cụm với hình dạng tùy ý và không yêu cầu số lượng cụm trước.
+% \begin{enumerate}
+%     \item \textbf{Áp dụng thuật toán phân cụm:} Hệ thống sử dụng thuật toán DBSCAN (Density-Based Spatial Clustering of Applications with Noise)~\cite{dbscan} để phân cụm các vector đặc trưng khuôn mặt. DBSCAN được lựa chọn vì khả năng phát hiện các cụm với hình dạng tùy ý và không yêu cầu số lượng cụm trước.
     
-    \item \textbf{Tính toán vector đại diện:} Sau khi phân cụm, hệ thống tính toán centroid (vector trung bình) cho mỗi nhóm khuôn mặt để làm đại diện cho nhóm đó.
+%     \item \textbf{Tính toán vector đại diện:} Sau khi phân cụm, hệ thống tính toán centroid (vector trung bình) cho mỗi nhóm khuôn mặt để làm đại diện cho nhóm đó.
     
-    \item \textbf{Lưu trữ và đặt tên mặc định:} Các centroid được lưu vào cơ sở dữ liệu cùng với tên mặc định cho mỗi nhóm khuôn mặt.
+%     \item \textbf{Lưu trữ và đặt tên mặc định:} Các centroid được lưu vào cơ sở dữ liệu cùng với tên mặc định cho mỗi nhóm khuôn mặt.
     
-    \item \textbf{Cập nhật thông tin nhóm:} Khi có thêm khuôn mặt mới được phát hiện, hệ thống thực hiện phân cụm lại và tính toán centroid mới với tập các khuôn mặt mới và khuôn mặt đã được phát hiện. Sau đó, hệ thống tính độ tương đồng cosine~\cite{cosine} giữa các centroid mới và các centroid đã lưu trước đó. Nếu độ tương đồng vượt quá ngưỡng định trước, hệ thống giữ nguyên centroid cũ và cập nhật thông tin nhóm cho các khuôn mặt mới. Cách tiếp cận này đảm bảo sự nhất quán trong việc phân loại khuôn mặt theo thời gian và giúp các nhóm khuôn mặt được cập nhật liên tục khi có thêm dữ liệu mới. 
-\end{enumerate}
+%     \item \textbf{Cập nhật thông tin nhóm:} Khi có thêm khuôn mặt mới được phát hiện, hệ thống thực hiện phân cụm lại và tính toán centroid mới với tập các khuôn mặt mới và khuôn mặt đã được phát hiện. Sau đó, hệ thống tính độ tương đồng cosine~\cite{cosine} giữa các centroid mới và các centroid đã lưu trước đó. Nếu độ tương đồng vượt quá ngưỡng định trước, hệ thống giữ nguyên centroid cũ và cập nhật thông tin nhóm cho các khuôn mặt mới. Cách tiếp cận này đảm bảo sự nhất quán trong việc phân loại khuôn mặt theo thời gian và giúp các nhóm khuôn mặt được cập nhật liên tục khi có thêm dữ liệu mới. 
+% \end{enumerate}
 
-Với cách tiếp cận này, Smart Gallery có thể tự động nhận diện và tổ chức các khuôn mặt xuất hiện trong thư viện ảnh của người dùng, cho phép người dùng dễ dàng xem, tìm kiếm và phân loại ảnh theo các cá nhân xuất hiện trong đó. Người dùng cũng có thể đặt tên cho các nhóm khuôn mặt, giúp cá nhân hóa trải nghiệm và tăng cường khả năng tìm kiếm bằng tên người.
+% Với cách tiếp cận này, Smart Gallery có thể tự động nhận diện và tổ chức các khuôn mặt xuất hiện trong thư viện ảnh của người dùng, cho phép người dùng dễ dàng xem, tìm kiếm và phân loại ảnh theo các cá nhân xuất hiện trong đó. Người dùng cũng có thể đặt tên cho các nhóm khuôn mặt, giúp cá nhân hóa trải nghiệm và tăng cường khả năng tìm kiếm bằng tên người.
 

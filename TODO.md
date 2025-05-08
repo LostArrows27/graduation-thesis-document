@@ -1,6 +1,6 @@
 ## TODO
-- [ ]  Hình database hiện nền trắng
-- [ ]  Soát lại lỗi chính tả
+- [ ]  1.2 noi ve hien trang -> cach khac phuc de sang 1.3 -> noi ve giai phap de xuat  
+- [ ]  phan 2 -> viet thanh doan van
 
 ## DONE 
 - [x] remove log in / sign up -> in 4.2 
@@ -29,6 +29,8 @@
 - [x]  Indent mỗi đầu đoạn văn trừ đầu chương
 - [x]  Đọc lại những chỗ có ngoặc đơn () / ngoặc kép “” / ngoặc đơn ‘’
 - [x]  Viết lại kết luận + Mở đầu hay và dễ đọc hơn → đỡ giống AI
+- [x]  Hình database hiện nền trắng
+- [x]  Soát lại lỗi chính tả
 
 ## SKIP
 - [ ] viet failed test trong E2E testing -> bao cao

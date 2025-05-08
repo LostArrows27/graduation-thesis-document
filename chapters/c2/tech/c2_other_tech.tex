@@ -2,16 +2,16 @@
 \begin{itemize}
     \item \textbf{Redis}~\cite{redisdoc}: Là một hệ thống lưu trữ dữ liệu trong bộ nhớ (in-memory data store) mã nguồn mở, hỗ trợ nhiều cấu trúc dữ liệu như chuỗi, danh sách, tập hợp và bản đồ. Redis thường được sử dụng để tăng tốc độ truy xuất dữ liệu và giảm tải cho cơ sở dữ liệu chính.
     \begin{itemize}
-        \item \textbf{Ứng dụng:} Smart Gallery sử dụng Redis như một queue để lưu trữ trạng thái render video của từng người dùng, ngăn chặn việc tạo video trùng lặp cho cùng một người dùng cũng như giới hạn mỗi người dùng chỉ được tạo một video trong một lúc. Ngoài ra Redis cũng được sử dụng như 1 hàng chờ (queue) để lưu các yêu cầu phân loại ảnh từ người dùng. 
+        \item Ứng dụng: Smart Gallery sử dụng Redis như một queue để lưu trữ trạng thái render video của từng người dùng, ngăn chặn việc tạo video trùng lặp cho cùng một người dùng cũng như giới hạn mỗi người dùng chỉ được tạo một video trong một lúc. Ngoài ra Redis cũng được sử dụng như 1 hàng chờ (queue) để lưu các yêu cầu phân loại ảnh từ người dùng. 
     \end{itemize}
     
     \item \textbf{Remotion}~\cite{remotion}: Là một thư viện JavaScript cho phép tạo video từ mã nguồn. Remotion cho phép lập trình viên sử dụng React để xây dựng các thành phần video, giúp tạo ra các video động và tương tác dễ dàng hơn.
     \begin{itemize}
-        \item \textbf{Ứng dụng:} Smart Gallery sử dụng Remotion để tạo video slideshow từ các bức ảnh được chọn bởi người dùng và sau đó render thành định dạng mp4.
+        \item Ứng dụng: Smart Gallery sử dụng Remotion để tạo video slideshow từ các bức ảnh được chọn bởi người dùng và sau đó render thành định dạng mp4.
     \end{itemize}
     
     \item \textbf{HTTP Live Streaming (HLS)}~\cite{hls}: Là một giao thức truyền tải video trực tuyến được phát triển bởi Apple. HLS cho phép truyền tải video qua HTTP, chia video thành các đoạn nhỏ và phát lại chúng theo thời gian thực. HLS hỗ trợ nhiều định dạng video và có khả năng tự động điều chỉnh chất lượng video dựa trên băng thông mạng.
     \begin{itemize}
-        \item \textbf{Ứng dụng:} Smart Gallery sử dụng ffmpeg~\cite{ffmpeg} để chuyển đổi video mp4 thành định dạng HLS với các chunk size nhỏ hơn. Sau đó tải các chunk này lên storage của Supabase để video có thể được phát lại trên các thiết bị khác nhau mà không cần tải xuống toàn bộ video, cũng như khắc phục hạn chế của Supabase Storage là không hỗ trợ tải lên những video lớn hơn 150Mb.
+        \item Ứng dụng: Smart Gallery sử dụng ffmpeg~\cite{ffmpeg} để chuyển đổi video mp4 thành định dạng HLS với các chunk size nhỏ hơn. Sau đó tải các chunk này lên storage của Supabase để video có thể được phát lại trên các thiết bị khác nhau mà không cần tải xuống toàn bộ video, cũng như khắc phục hạn chế của Supabase Storage là không hỗ trợ tải lên những video lớn hơn 150Mb.
     \end{itemize}
 \end{itemize}

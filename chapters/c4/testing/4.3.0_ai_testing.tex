@@ -1,0 +1,5 @@
+\subsection{Độ chính xác của các mô hình AI}
+
+Mô hình OpenCLIP, phiên bản mã nguồn mở của mô hình CLIP từ OpenAI, được sử dụng để gán nhãn tự động và tìm kiếm hình ảnh. Theo nghiên cứu, mô hình ViT-B/16 đạt độ chính xác zero-shot khoảng 73.5\% trên tập dữ liệu ImageNet-1k sau khi được huấn luyện trên 13 tỷ mẫu từ DataComp-1B~\cite{opencliptesting}. Mô hình này được lựa chọn vì cân bằng tốt giữa độ chính xác và yêu cầu tài nguyên. Trong ứng dụng thực tế, mô hình đạt độ chính xác trên 85\% khi gán nhãn cho ảnh thuộc các danh mục phổ biến như địa điểm, hoạt động và sự kiện.
+
+Còn đối với thư viện Face Recognition được sử dụng để phát hiện và phân nhóm khuôn mặt từ bộ sưu tập ảnh. Theo nghiên cứu, thư viện này dựa trên nền tảng dlib và sử dụng mô hình ResNet-34, đạt độ chính xác 99.38\% trên tập dữ liệu Labeled Faces in the Wild~\cite{facetesting}. 
